@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "settings": {
+    "layout": {
+      "contentSize": "1200px",
+      "wideSize": "1400px"
+    },
+    "color": {
+      "palette": [
+        { "slug": "primary", "color": "#111111", "name": "Primary" },
+        { "slug": "accent", "color": "#E63946", "name": "Accent" },
+        { "slug": "bg", "color": "#FFFFFF", "name": "Background" }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        { "slug": "system", "fontFamily": "system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif", "name": "System" }
+      ]
+    }
+  }
+}
