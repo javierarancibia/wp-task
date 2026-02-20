@@ -39,6 +39,19 @@
     color: var(--wp--preset--color--white);
 }
 
+.top-bar__label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+    color: var(--wp--preset--color--white);
+}
+
+.phone-icon {
+    color: var(--wp--preset--color--aqua);
+    font-size: 20px;
+}
+
 .phone-number a {
     color: var(--wp--preset--color--white);
     text-decoration: none;

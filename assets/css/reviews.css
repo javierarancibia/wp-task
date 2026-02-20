@@ -34,12 +34,6 @@
     z-index: 20;
 }
 
-.quote-icon img {
-    width: 80px;
-    height: auto;
-    opacity: 0.8;  
-}
-
 .testimonial-text {
     color: #333;
     font-size: 1.1rem;
