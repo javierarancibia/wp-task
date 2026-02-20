@@ -13,6 +13,11 @@
     "typography": {
       "fontFamilies": [
         {
+          "name": "FreightNeo Pro",
+          "slug": "freight-neo",
+          "fontFamily": "'FreightNeo Pro', 'Cormorant Garamond', serif"
+        },
+        {
           "name": "Cormorant Garamond",
           "slug": "heading",
           "fontFamily": "Cormorant Garamond, serif",
@@ -70,11 +75,11 @@
     "elements": {
       "h1": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--heading)",
-          "fontSize": "clamp(3rem, 8vw, 7.5rem)",
-          "fontWeight": "300",
-          "lineHeight": "1.08",
-          "letterSpacing": "0.2em",
+          "fontFamily": "var(--wp--preset--font-family--freight-neo)",
+          "fontSize": "clamp(3.5rem, 8vw, 120px)",
+          "fontWeight": "400",
+          "lineHeight": "130px",
+          "letterSpacing": "0",
           "textTransform": "uppercase"
         },
         "color": {
@@ -84,10 +89,10 @@
       "h2": {
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--body)",
-          "fontSize": "clamp(1rem, 2vw, 1.5rem)",
+          "fontSize": "clamp(1.5rem, 3vw, 40px)",
           "fontWeight": "700",
-          "lineHeight": "1.5",
-          "letterSpacing": "0.15em",
+          "lineHeight": "100%",
+          "letterSpacing": "0.4em",
           "textTransform": "uppercase"
         },
         "color": {

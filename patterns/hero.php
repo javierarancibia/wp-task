@@ -6,52 +6,51 @@
  */
 ?>
 
-<!-- wp:group {"tagName":"section","className":"hero","layout":{"type":"constrained","wideSize":"100%"}} -->
-<section class="wp-block-group hero">
+<!-- wp:group {"align":"full","className":"hero-header-wrapper","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull hero-header-wrapper">
 
-    <!-- Video background -->
-    <div class="hero__video-wrapper">
-        <video class="hero__video" autoplay muted loop playsinline>
-            <source src="" type="video/mp4" data-src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-video.mp4">
-        </video>
-        <!-- Fallback image mientras llega el video -->
-        <div class="hero__overlay"></div>
-        <img class="hero__fallback" 
-             src="<?php echo get_template_directory_uri(); ?>/assets/images/menu-bg.jpg" 
-             alt="">
-    </div>
+    <div class="hero-header-inner">
 
-    <!-- Contenido centrado -->
-    <!-- wp:group {"className":"hero__content","layout":{"type":"constrained"}} -->
-    <div class="wp-block-group hero__content">
+        <!-- HERO CONTENT -->
+        <!-- wp:group {"className":"hero-content","layout":{"type":"constrained"}} -->
+        <div class="wp-block-group hero-content">
 
-        <!-- wp:heading {"level":1,"className":"hero__title"} -->
-        <h1 class="hero__title">Aesthetic Treatments</h1>
-        <!-- /wp:heading -->
+            <!-- wp:heading {"textAlign":"center","level":1,"className":"hero-title secondary-font"} -->
+            <h1 class="wp-block-heading has-text-align-center hero-title secondary-font">AESTHETIC TREATMENTS</h1>
+            <!-- /wp:heading -->
 
-        <!-- wp:paragraph {"className":"hero__subtitle"} -->
-        <p class="hero__subtitle">Customized for you</p>
-        <!-- /wp:paragraph -->
+            <!-- wp:heading {"textAlign":"center","level":2,"className":"hero-subtitle"} -->
+            <h2 class="wp-block-heading has-text-align-center hero-subtitle">CUSTOMIZED FOR YOU</h2>
+            <!-- /wp:heading -->
 
-        <!-- wp:buttons {"className":"hero__buttons","layout":{"type":"flex","justifyContent":"center"}} -->
-        <div class="wp-block-buttons hero__buttons">
-            <!-- wp:button {"className":"hero__cta"} -->
-            <div class="wp-block-button hero__cta">
-                <a class="wp-block-button__link" href="https://bespokerx.myaestheticrecord.com/book/appointments/bBQyDNe8pm7oPzox9jGXORxW6aK54J/clinics">
-                    Get Started
-                </a>
+            <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+            <div class="wp-block-buttons">
+                <!-- wp:button {"className":"hero-cta","style":{"border":{"radius":"50px","width":"2px"},"spacing":{"padding":{"top":"1rem","bottom":"1rem","left":"2.5rem","right":"2.5rem"}}}} -->
+                <div class="wp-block-button hero-cta">
+                    <a class="wp-block-button__link wp-element-button" href="https://bespokerx.myaestheticrecord.com/book/appointments/bBQyDNe8pm7oPzox9jGXORxW6aK54J/clinics" style="border-width:2px;border-radius:50px;padding-top:1rem;padding-right:2.5rem;padding-bottom:1rem;padding-left:2.5rem">SCHEDULE APPOINTMENT</a>
+                </div>
+                <!-- /wp:button -->
             </div>
-            <!-- /wp:button -->
-        </div>
-        <!-- /wp:buttons -->
+            <!-- /wp:buttons -->
 
-        <!-- Scroll indicator -->
-        <!-- wp:paragraph {"className":"hero__scroll"} -->
-        <p class="hero__scroll">Explore</p>
-        <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
+
+        <!-- EXPLORE SECTION -->
+        <!-- wp:group {"className":"explore-section","layout":{"type":"constrained"}} -->
+        <div class="wp-block-group explore-section">
+
+            <!-- wp:paragraph {"align":"center","className":"explore-text","style":{"typography":{"fontSize":"0.875rem","letterSpacing":"0.2em"},"color":{"text":"#ffffff"}}} -->
+            <p class="has-text-align-center explore-text" style="color:#ffffff;font-size:0.875rem;letter-spacing:0.2em">EXPLORE</p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:paragraph {"align":"center","className":"explore-arrow","style":{"color":{"text":"#ffffff"}}} -->
+            <p class="has-text-align-center explore-arrow" style="color:#ffffff">↓</p>
+            <!-- /wp:paragraph -->
+
+        </div>
+        <!-- /wp:group -->
 
     </div>
-    <!-- /wp:group -->
-
-</section>
+</div>
 <!-- /wp:group -->
