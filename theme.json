@@ -1,21 +1,99 @@
 {
   "version": 2,
   "settings": {
-    "layout": {
-      "contentSize": "1200px",
-      "wideSize": "1400px"
-    },
     "color": {
       "palette": [
-        { "slug": "primary", "color": "#111111", "name": "Primary" },
-        { "slug": "accent", "color": "#E63946", "name": "Accent" },
-        { "slug": "bg", "color": "#FFFFFF", "name": "Background" }
+        { "name": "Cream",        "slug": "cream",       "color": "#F5F0EB" },
+        { "name": "Aqua",         "slug": "aqua",        "color": "#7FBAC8" },
+        { "name": "Dark Green",   "slug": "dark-green",  "color": "#00202C" },
+        { "name": "Dark",         "slug": "dark",        "color": "#2E2E2E" },
+        { "name": "White",        "slug": "white",       "color": "#FFFFFF" }
       ]
     },
     "typography": {
       "fontFamilies": [
-        { "slug": "system", "fontFamily": "system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif", "name": "System" }
+        {
+          "name": "Cormorant Garamond",
+          "slug": "heading",
+          "fontFamily": "Cormorant Garamond, serif",
+          "fontFace": [
+            {
+              "fontFamily": "Cormorant Garamond",
+              "fontWeight": "400 700",
+              "fontStyle": "normal",
+              "src": ["https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&display=swap"]
+            }
+          ]
+        },
+        {
+          "name": "Montserrat",
+          "slug": "body",
+          "fontFamily": "Montserrat, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Montserrat",
+              "fontWeight": "400 700",
+              "fontStyle": "normal",
+              "src": ["https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"]
+            }
+          ]
+        }
+      ],
+      "fontSizes": [
+        { "name": "Small",    "slug": "small",    "size": "14px" },
+        { "name": "Base",     "slug": "base",     "size": "16px" },
+        { "name": "Medium",   "slug": "medium",   "size": "24px" },
+        { "name": "Large",    "slug": "large",    "size": "40px" },
+        { "name": "XLarge",   "slug": "xlarge",   "size": "68px" },
+        { "name": "XXLarge",  "slug": "xxlarge",  "size": "96px" },
+        { "name": "Hero",     "slug": "hero",     "size": "120px" }
       ]
+    },
+    "spacing": {
+      "units": ["px", "%", "em", "rem", "vw"]
+    },
+    "layout": {
+      "contentSize": "1200px",
+      "wideSize": "1920px"
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#f5f0eb",
+      "text": "#2c2c2c"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--body)",
+      "fontSize": "var(--wp--preset--font-size--base)",
+      "lineHeight": "1.875"
+    },
+    "elements": {
+      "h1": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--heading)",
+          "fontSize": "var(--wp--preset--font-size--hero)",
+          "fontWeight": "400",
+          "lineHeight": "1.08",
+          "textTransform": "uppercase"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--heading)",
+          "fontSize": "var(--wp--preset--font-size--xxlarge)",
+          "fontWeight": "500",
+          "lineHeight": "1.125"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--heading)",
+          "fontSize": "var(--wp--preset--font-size--xlarge)",
+          "fontWeight": "400",
+          "lineHeight": "1.09",
+          "textTransform": "uppercase"
+        }
+      }
     }
   }
 }
