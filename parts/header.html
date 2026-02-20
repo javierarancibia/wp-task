@@ -1,9 +1,9 @@
 <!-- wp:group {"tagName":"header","className":"site-header","layout":{"type":"constrained"}} -->
 <header class="wp-block-group site-header">
 
-    <!-- TOP BAR -->
-    <!-- wp:group {"align":"full","className":"top-bar","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center"}} -->
-    <div class="wp-block-group alignfull top-bar">
+    <!-- MAIN HEADER -->
+    <!-- wp:group {"align":"full","className":"main-header","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center"}} -->
+    <div class="wp-block-group alignfull main-header">
 
         <!-- Phone left -->
         <!-- wp:group {"className":"top-bar__phone","layout":{"type":"flex","alignItems":"center"}} -->
@@ -17,17 +17,16 @@
         </div>
         <!-- /wp:group -->
 
-        <!-- CTAs right -->
-        <!-- wp:group {"className":"top-bar__ctas","layout":{"type":"flex","alignItems":"center"}} -->
-          <div class="wp-block-group top-bar__ctas">
-          <!-- Mobile hamburger -->
-          <!-- wp:group {"className":"menu-toggle","layout":{"type":"flex"}} -->
-          <div class="wp-block-group menu-toggle">
-              <!-- wp:paragraph {"className":"hamburger"} -->
-              <p class="hamburger">&#9776;</p>
-              <!-- /wp:paragraph -->
-          </div>
-          </div>
+        <!-- Logo center -->
+        <!-- wp:site-logo {"width":200,"className":"site-logo"} /-->
+
+        <!-- Hamburger right -->
+        <!-- wp:group {"className":"menu-toggle","layout":{"type":"flex"}} -->
+        <div class="wp-block-group menu-toggle">
+            <!-- wp:paragraph {"className":"hamburger"} -->
+            <p class="hamburger">&#9776;</p>
+            <!-- /wp:paragraph -->
+        </div>
         <!-- /wp:group -->
 
     </div>
