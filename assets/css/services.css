@@ -1,0 +1,144 @@
+.services-section {
+    background-color: #00202c;
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 850px;
+}
+
+.services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Espacio para imagen y lista */
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Visuals (Imagen y Texto) --- */
+.services-visuals {
+    position: relative;
+}
+
+.main-image-wrapper {
+    position: relative;
+    width: 450px;
+    height: 600px;
+    margin-left: 100px; /* Espacio para el texto a la izquierda */
+    z-index: 2;
+}
+
+.main-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* El texto que solapa la imagen */
+.services-text-overlay {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.services-text-overlay .eyebrow {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.services-main-title {
+    color: #7fbac8; /* Aqua Bespoke */
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-family: serif;
+}
+
+/* --- Botón Flotante Aqua --- */
+.floating-action-button {
+    position: absolute;
+    bottom: 20px;
+    left: -25px;
+    background: #7fbac8;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* --- Lista de Servicios (Derecha) --- */
+.services-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.service-item .radio-dot {
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    margin-right: 20px;
+    position: relative;
+}
+
+.service-item.active .radio-dot {
+    border-color: #7fbac8;
+    background: radial-gradient(circle, #7fbac8 40%, transparent 45%);
+}
+
+.service-item .label {
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.service-item.active .label {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.inline-learn {
+    margin-left: 15px;
+    color: #7fbac8;
+    font-size: 0.7rem;
+    text-decoration: none;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.service-item.active .inline-learn {
+    opacity: 1;
+}
+
+/* --- Patrones Específicos para esta Sección --- */
+
+.services-pattern-bottom {
+    bottom: -250px;
+    left: 25%;
+    opacity: 0.2;
+}
