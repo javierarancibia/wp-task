@@ -16,7 +16,7 @@
     position: absolute;
     width: 495px;
     height: 495px;
-    background-image: url('../assets/images/frame.svg'); /* Ajusta la ruta */
+    background-image: url('../images/frame.svg');
     background-repeat: no-repeat;
     background-size: contain;
     opacity: 0.4;
