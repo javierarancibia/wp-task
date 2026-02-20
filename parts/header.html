@@ -1,36 +1,31 @@
-<!-- wp:group {"tagName":"header","className":"site-header","layout":{"type":"constrained"}} -->
 <header class="wp-block-group site-header">
 
-    <!-- MAIN HEADER -->
-    <!-- wp:group {"align":"full","className":"main-header","layout":{"type":"flex","justifyContent":"space-between","alignItems":"center"}} -->
     <div class="wp-block-group alignfull main-header">
 
-        <!-- Phone left -->
-        <!-- wp:group {"className":"top-bar__phone","layout":{"type":"flex","alignItems":"center"}} -->
-        <div class="wp-block-group top-bar__phone">
-            <!-- wp:paragraph {"className":"top-bar__label"} -->
-            <p class="top-bar__label">CALL TODAY</p>
-            <!-- /wp:paragraph -->
-            <!-- wp:paragraph -->
-            <p><a href="tel:+18132036196">813-203-6196</a></p>
-            <!-- /wp:paragraph -->
+        <div class="wp-block-group header-phone-wrapper">
+            <div class="phone-circle">
+                <span class="phone-icon">📞</span> </div>
+            <div class="phone-text">
+                <p class="top-bar__label">CALL TODAY</p>
+                <p class="phone-number"><a href="tel:+18132036196">813-203-6196</a></p>
+            </div>
+        </div>
+
+        <!-- wp:group {"className":"header-logo-wrapper","layout":{"type":"flex"}} -->
+        <div class="wp-block-group header-logo-wrapper">
+            <!-- wp:image {"className":"site-logo"} -->
+            <figure class="wp-block-image site-logo">
+                <img src="/wp-content/themes/bespokerx-theme/assets/images/Logo.svg" alt="Bespoke Rx Logo">
+            </figure>
+            <!-- /wp:image -->
         </div>
         <!-- /wp:group -->
 
-        <!-- Logo center -->
-        <!-- wp:site-logo {"width":200,"className":"site-logo"} /-->
-
-        <!-- Hamburger right -->
-        <!-- wp:group {"className":"menu-toggle","layout":{"type":"flex"}} -->
-        <div class="wp-block-group menu-toggle">
-            <!-- wp:paragraph {"className":"hamburger"} -->
-            <p class="hamburger">&#9776;</p>
-            <!-- /wp:paragraph -->
+        <div class="header-menu-wrapper">
+            <div class="menu-circle">
+                <p class="hamburger">☰</p>
+            </div>
         </div>
-        <!-- /wp:group -->
 
     </div>
-    <!-- /wp:group -->
-
 </header>
-<!-- /wp:group -->
