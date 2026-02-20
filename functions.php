@@ -117,5 +117,13 @@ function bespokerx_register_patterns() {
             'content' => $get_pattern_content( 'gallery.php' ),
         ]
     );
+
+    register_block_pattern(
+        'bespokerx/reviews',
+        [
+            'title'   => 'Reviews Section',
+            'content' => $get_pattern_content( 'reviews.php' ),
+        ]
+    );
 }
 add_action( 'init', 'bespokerx_register_patterns' );

@@ -1,0 +1,130 @@
+.reviews-section {
+    background-color: #00202c;
+    padding: 120px 0 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Tarjeta Blanca --- */
+.testimonial-card {
+    background: #fff;
+    padding: 80px 60px;
+    position: relative;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.3);
+}
+
+.quote-icon {
+    position: absolute;
+    top: -35px; /* Ajusta para que "pise" el borde superior */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex; /* Alinea los SVG uno al lado del otro */
+    gap: 8px;      /* Espacio entre la primera y la segunda comilla */
+    z-index: 20;
+}
+
+.quote-icon img {
+    width: 80px;
+    height: auto;
+    opacity: 0.8;  
+}
+
+.testimonial-text {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    color: #00202c;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+/* Botón View All */
+.btn-all-testimonials {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 25px;
+    border: 1px solid #7fbac8;
+    border-radius: 30px;
+    color: #7fbac8;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-all-testimonials:hover {
+    background: #7fbac8;
+    color: #fff;
+}
+
+/* --- Display Derecho --- */
+.reviews-display {
+    position: relative;
+}
+
+.ghosted-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%; /* Sobresale para el efecto de fondo */
+    z-index: 1;
+}
+
+.rating-info {
+    position: relative;
+    z-index: 5;
+    margin-bottom: 20px;
+}
+
+.stars {
+    color: #7fbac8;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.rating-label {
+    color: #fff;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.reviews-big-title {
+    position: relative;
+    z-index: 5;
+    font-family: serif;
+    font-size: clamp(5rem, 10vw, 7rem);
+    color: #7fbac8;
+    text-transform: uppercase;
+    line-height: 0.8;
+    margin: 0;
+}
+
+/* --- Patrón superior --- */
+.reviews-pattern-top {
+    top: 0;
+    right: 0;
+    width: 495px;
+    opacity: 0.1;
+}
