@@ -70,13 +70,21 @@ function bespokerx_register_meta() {
 }
 add_action( 'init', 'bespokerx_register_meta' );
 
-// function bespokerx_register_patterns() {
-//     register_block_pattern(
-//         'bespokerx/hero',
-//         [
-//             'title'   => 'Hero Section',
-//             'content' => file_get_contents( get_template_directory() . '/patterns/hero.php' ),
-//         ]
-//     );
-// }
-// add_action( 'init', 'bespokerx_register_patterns' );
+function bespokerx_register_patterns() {
+    register_block_pattern(
+        'bespokerx/hero',
+        [
+            'title'   => 'Hero Section',
+            'content' => file_get_contents( get_template_directory() . '/patterns/hero.php' ),
+        ]
+    );
+
+    register_block_pattern(
+        'bespokerx/experience',
+        [
+            'title'   => 'Experience Section',
+            'content' => file_get_contents( get_template_directory() . '/patterns/experience.php' ),
+        ]
+    );
+}
+add_action( 'init', 'bespokerx_register_patterns' );
