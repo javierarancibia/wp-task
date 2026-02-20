@@ -78,20 +78,20 @@ function bespokerx_register_patterns() {
         return ob_get_clean();
     };
 
-    register_block_pattern(
-        'bespokerx/hero',
-        [
-            'title'   => 'Hero Section',
-            'content' => $get_pattern_content( 'hero.php' ),
-        ]
-    );
+    // register_block_pattern(
+    //     'bespokerx/hero',
+    //     [
+    //         'title'   => 'Hero Section',
+    //         'content' => $get_pattern_content( 'hero.php' ),
+    //     ]
+    // );
 
-    register_block_pattern(
-        'bespokerx/experience',
-        [
-            'title'   => 'Experience Section',
-            'content' => $get_pattern_content( 'experience.php' ),
-        ]
-    );
+    // register_block_pattern(
+    //     'bespokerx/experience',
+    //     [
+    //         'title'   => 'Experience Section',
+    //         'content' => $get_pattern_content( 'experience.php' ),
+    //     ]
+    // );
 }
 add_action( 'init', 'bespokerx_register_patterns' );
