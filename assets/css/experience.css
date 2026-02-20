@@ -1,0 +1,117 @@
+/* ─── EXPERIENCE SECTION ───────────────────────────── */
+.experience {
+    position: relative;
+    background-color: var(--wp--preset--color--white);
+    padding: 100px 40px;
+    overflow: hidden;
+}
+
+.experience__bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/abstract-curves.jpg');
+    background-size: cover;
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+/* Intro centrado */
+.experience__intro {
+    text-align: center;
+    margin: 0 auto 80px;
+    max-width: 700px;
+}
+
+.experience__title {
+    font-family: var(--wp--preset--font-family--heading);
+    font-size: clamp(48px, 6vw, 96px);
+    font-weight: 500;
+    line-height: 1.125;
+    color: var(--wp--preset--color--aqua);
+    margin-bottom: 32px;
+    text-transform: none;
+}
+
+.experience__text {
+    font-family: var(--wp--preset--font-family--body);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--wp--preset--color--dark);
+    text-align: center;
+}
+
+/* Tailored — imagen + texto */
+.experience__tailored {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.experience__image {
+    width: 100%;
+    margin: 0;
+}
+
+.experience__image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.experience__tailored-content {
+    width: 100%;
+}
+
+.experience__tailored-title {
+    font-family: var(--wp--preset--font-family--heading);
+    font-size: clamp(36px, 4vw, 68px);
+    font-weight: 400;
+    line-height: 1.09;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--aqua);
+    margin-bottom: 24px;
+}
+
+.experience__tailored-text {
+    font-family: var(--wp--preset--font-family--body);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 2;
+    color: var(--wp--preset--color--dark);
+    margin-bottom: 16px;
+}
+
+.btn-learn-more .wp-block-button__link {
+    background: transparent;
+    color: var(--wp--preset--color--aqua);
+    font-family: var(--wp--preset--font-family--body);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 2px solid var(--wp--preset--color--aqua);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-learn-more .wp-block-button__link:hover {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .experience__tailored {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}

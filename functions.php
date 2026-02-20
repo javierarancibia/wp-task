@@ -71,11 +71,18 @@ function bespokerx_register_meta() {
 add_action( 'init', 'bespokerx_register_meta' );
 
 function bespokerx_register_patterns() {
+    // Helper function to get pattern content with PHP execution
+    $get_pattern_content = function( $file ) {
+        ob_start();
+        include get_template_directory() . '/patterns/' . $file;
+        return ob_get_clean();
+    };
+
     register_block_pattern(
         'bespokerx/hero',
         [
             'title'   => 'Hero Section',
-            'content' => file_get_contents( get_template_directory() . '/patterns/hero.php' ),
+            'content' => $get_pattern_content( 'hero.php' ),
         ]
     );
 
@@ -83,7 +90,7 @@ function bespokerx_register_patterns() {
         'bespokerx/experience',
         [
             'title'   => 'Experience Section',
-            'content' => file_get_contents( get_template_directory() . '/patterns/experience.php' ),
+            'content' => $get_pattern_content( 'experience.php' ),
         ]
     );
 }
