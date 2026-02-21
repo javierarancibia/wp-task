@@ -1,7 +1,64 @@
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
-  <!-- wp:paragraph -->
-  <p>© <?php echo date('Y'); ?> Bespoke RX</p>
-  <!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
+<footer class="wp-block-group site-footer">
+    <div class="wp-block-group footer-contact-section">
+        
+        <div class="footer-container">
+            <div class="footer-info">
+                <h2 class="footer-big-title">IT'S ALL <br> ABOUT YOU</h2>
+                <p class="footer-subtitle">CONTACT US AND BEGIN YOUR PERSONALIZED AESTHETIC JOURNEY</p>
+                
+                <p class="footer-notice">All new patients must be screened. Referrals are welcome.</p>
+
+                <div class="contact-links">
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <a href="tel:+18132036196">813-203-6196</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <p>442 W. Kennedy Boulevard <br> Suite 310 <br> Tampa, FL 33606</p>
+                    </div>
+                </div>
+
+                <div class="footer-map-bg">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/map.png" alt="Map Location">
+                </div>
+            </div>
+
+            <div class="footer-form-wrapper">
+                <form class="bespoke-footer-form">
+                    <input type="text" placeholder="Kristina Sanders" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Your Phone Number">
+                    <select>
+                        <option>General Inquiry</option>
+                        <option>Appointment Request</option>
+                    </select>
+                    <textarea placeholder="Your Message"></textarea>
+                    
+                    <div class="form-footer">
+                        <label class="checkbox-container">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span> Keep me updated with Bespoke RX
+                        </label>
+                        <button type="submit" class="btn-submit">SUBMIT →</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="wp-block-group footer-bottom-bar">
+        <div class="social-links">
+            <a href="#" class="social-icon">Instagram</a>
+            <a href="#" class="social-icon">Facebook</a>
+            <a href="#" class="social-icon">YouTube</a>
+        </div>
+
+        <div class="copyright-text">
+            <p>Copyright © 2021 Bespoke Rx. All Rights Reserved. <a href="#">Terms of Service</a>. <a href="#">Privacy Policy</a></p>
+        </div>
+
+        <div class="credits">
+            <p>Designed by Incredible Marketing</p>
+        </div>
+    </div>
+</footer>

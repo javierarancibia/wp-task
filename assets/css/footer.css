@@ -1,0 +1,121 @@
+.site-footer {
+    background-color: #00202c;
+    color: #fff;
+    padding: 100px 0 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Lado Izquierdo --- */
+.footer-big-title {
+    font-family: serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: #7fbac8;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.footer-subtitle {
+    font-weight: bold;
+    letter-spacing: 2px;
+    max-width: 400px;
+    margin-bottom: 30px;
+}
+
+.footer-notice {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(127, 186, 200, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mapa de fondo sutil */
+.footer-map-bg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-50%);
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- Formulario --- */
+.footer-form-wrapper {
+    background: rgba(0, 32, 44, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border: 1px solid rgba(127, 186, 200, 0.2);
+}
+
+.bespoke-footer-form input,
+.bespoke-footer-form select,
+.bespoke-footer-form textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.btn-submit {
+    background: #7fbac8;
+    color: #00202c;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #fff;
+}
+
+/* --- Barra Inferior --- */
+.footer-bottom-bar {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a { color: #fff; text-decoration: none; }
