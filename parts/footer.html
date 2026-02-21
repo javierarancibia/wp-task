@@ -11,7 +11,7 @@
                 <div class="contact-links">
                     <div class="contact-item">
                         <span class="contact-icon">📞</span>
-                        <a href="tel:+18132036196">813-203-6196</a>
+                        <p>813-203-6196</p>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">📍</span>
@@ -20,25 +20,28 @@
                 </div>
 
                 <div class="footer-map-bg">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/map.png" alt="Map Location">
+                    <img src="/wp-content/themes/bespokerx-theme/assets/images/map.png" alt="Map Location">
                 </div>
             </div>
 
-            <div class="footer-form-wrapper">
+           <div class="footer-form-wrapper">
                 <form class="bespoke-footer-form">
                     <input type="text" placeholder="Kristina Sanders" required>
                     <input type="email" placeholder="Your Email" required>
                     <input type="tel" placeholder="Your Phone Number">
-                    <select>
-                        <option>General Inquiry</option>
-                        <option>Appointment Request</option>
-                    </select>
+                    <div class="select-wrapper">
+                        <select>
+                            <option>General Inquiry</option>
+                            <option>Appointment Request</option>
+                        </select>
+                    </div>
                     <textarea placeholder="Your Message"></textarea>
                     
                     <div class="form-footer">
                         <label class="checkbox-container">
                             <input type="checkbox" checked>
-                            <span class="checkmark"></span> Keep me updated with Bespoke RX
+                            <span class="checkmark"></span> 
+                            <span class="label-text">Keep me updated with Bespoke RX</span>
                         </label>
                         <button type="submit" class="btn-submit">SUBMIT →</button>
                     </div>

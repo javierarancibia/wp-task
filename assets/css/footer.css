@@ -1,121 +1,301 @@
+/* ─── 1. CONTENEDOR PRINCIPAL Y FONDO ─── */
 .site-footer {
-    background-color: #00202c;
+    background-image: url('../images/swirly-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay; /* Mantiene el fondo oscuro con textura sutil */
     color: #fff;
     padding: 100px 0 40px;
     position: relative;
     overflow: hidden;
+    font-family: inherit;
 }
 
 .footer-container {
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    gap: 40px;
     position: relative;
-    z-index: 10;
+    z-index: 5;
+    align-items: center; /* Centra verticalmente ambas columnas */
 }
 
-/* --- Lado Izquierdo --- */
+/* ─── 2. COLUMNA IZQUIERDA (TEXTO Y MAPA) ─── */
+.footer-info {
+    position: relative;
+}
+
 .footer-big-title {
-    font-family: serif;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    color: #7fbac8;
-    line-height: 0.9;
-    text-transform: uppercase;
-    margin-bottom: 25px;
+    font-family: var(--wp--preset--font-family--heading, serif);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    color: #84B9C7; /* Aqua claro */
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    font-weight: 400;
 }
 
 .footer-subtitle {
-    font-weight: bold;
+    font-size: 1rem;
     letter-spacing: 2px;
-    max-width: 400px;
+    text-transform: uppercase;
     margin-bottom: 30px;
+    max-width: 400px;
+    line-height: 1.6;
 }
 
 .footer-notice {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     opacity: 0.6;
     margin-bottom: 40px;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 10; /* Asegura que se pueda hacer clic por encima del mapa */
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 25px;
+    gap: 15px;
 }
 
 .contact-icon {
     width: 40px;
     height: 40px;
-    border: 1px solid rgba(127, 186, 200, 0.4);
+    border: 1px solid rgba(132, 185, 199, 0.4);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
 }
 
-/* Mapa de fondo sutil */
+.contact-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- EL MAPA DE FONDO --- */
 .footer-map-bg {
     position: absolute;
-    top: 50%;
-    left: 0;
+    top: -50px;
+    left: 20%; /* Lo empuja hacia el centro/derecha detrás del formulario */
+    width: 800px; /* Tamaño fijo grande */
+    opacity: 0.2; /* Transparencia exacta al original */
+    z-index: 0;
+    pointer-events: none; /* Evita que bloquee clics */
+}
+
+.footer-map-bg img {
     width: 100%;
-    height: 100%;
-    transform: translateY(-50%);
-    opacity: 0.15;
-    z-index: -1;
-    pointer-events: none;
+    height: auto;
+    filter: grayscale(100%) invert(1); /* Lo vuelve oscuro y azulado */
 }
 
-/* --- Formulario --- */
+/* ─── 3. COLUMNA DERECHA (FORMULARIO) ─── */
 .footer-form-wrapper {
-    background: rgba(0, 32, 44, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 50px;
-    border: 1px solid rgba(127, 186, 200, 0.2);
+    background: linear-gradient(123.86deg, #00202C 0%, #26414C 100%);    padding: 50px;
+    box-shadow: -10px 15px 40px rgba(0, 0, 0, 0.4); /* Sombra para resaltar sobre el mapa */
+    position: relative;
+    z-index: 10;
+    max-width: 550px;
+    margin-left: auto;
+    top: 80px;
 }
 
+/* Inputs y Textarea */
 .bespoke-footer-form input,
 .bespoke-footer-form select,
 .bespoke-footer-form textarea {
     width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    margin-bottom: 20px;
+    background-color: #273D45; /* Fondo más claro que el bloque principal */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borde súper fino */
+    border-radius: 0; /* Bordes totalmente rectos */
+    padding: 16px 20px;
+    margin-bottom: 15px;
     color: #fff;
+    font-size: 0.9rem;
+    outline: none;
+    box-sizing: border-box;
 }
 
-.btn-submit {
-    background: #7fbac8;
-    color: #00202c;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-weight: bold;
+.bespoke-footer-form input::placeholder,
+.bespoke-footer-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.bespoke-footer-form textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+/* Select con Icono de Círculo/Flecha */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper select {
+    appearance: none;
     cursor: pointer;
-    transition: 0.3s;
+}
+
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+/* ─── 4. FORM FOOTER (Checkbox y Botón) ─── */
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* Checkbox Cuadrado Personalizado */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #fff;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 16px;
+    width: 16px;
+    border: 1px solid #84B9C7; /* Borde aqua */
+    background-color: transparent;
+    border-radius: 2px;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #84B9C7;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid #1A2E35; /* El 'tick' es del color del fondo del formulario */
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Botón Submit con Anillo Exterior */
+.btn-submit {
+    background-color: #84B9C7;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    /* El truco del box-shadow crea el espacio y el anillo exterior sin editar el HTML */
+    box-shadow: 0 0 0 4px #1A2E35, 0 0 0 5px rgba(132, 185, 199, 0.6);
+    transition: all 0.3s ease;
 }
 
 .btn-submit:hover {
-    background: #fff;
+    background-color: #fff;
+    color: #1A2E35;
 }
 
-/* --- Barra Inferior --- */
+/* ─── 5. BARRA INFERIOR (Redes y Copyright) ─── */
 .footer-bottom-bar {
-    margin-top: 80px;
-    padding-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
+    max-width: 1200px;
+    margin: 250px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .social-links {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
-.social-links a { color: #fff; text-decoration: none; }
+.social-icon {
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0; /* Oculta el texto */
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    border-color: #84B9C7;
+}
+
+/* Iniciales para los círculos si no usas iconos SVG */
+.social-icon:nth-child(1)::before { content: 'ig'; font-size: 11px; }
+.social-icon:nth-child(2)::before { content: 'fb'; font-size: 11px; }
+.social-icon:nth-child(3)::before { content: 'yt'; font-size: 11px; }
+
+.copyright-text p, .credits p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.copyright-text a {
+    color: #84B9C7;
+    text-decoration: none;
+}
