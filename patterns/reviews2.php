@@ -38,10 +38,10 @@
 
         <div class="rss-instagram-container">
             <div class="rss-ig-header">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ig-icon-grey.svg" alt="Instagram" class="rss-ig-icon">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram-icon.svg" alt="Instagram" class="rss-ig-icon">
                 <div class="rss-ig-title-row">
                     <div class="rss-line"></div>
-                    <h3 class="rss-ig-title">FOLLOW US <span class="rss-ig-handle">@BESPOKE_RX</span></h3>
+                    <h4 class="rss-ig-title">FOLLOW US <span class="rss-ig-handle">@BESPOKE_RX</span></h4>
                     <div class="rss-line"></div>
                 </div>
             </div>
