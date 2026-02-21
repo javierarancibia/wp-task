@@ -133,5 +133,13 @@ function bespokerx_register_patterns() {
             'content' => $get_pattern_content( 'reviews2.php' ),
         ]
     );
+
+    register_block_pattern(
+        'bespokerx/contact-hero',
+        [
+            'title'   => 'Contact Hero Section',
+            'content' => $get_pattern_content( 'contact-hero.php' ),
+        ]
+    );
 }
 add_action( 'init', 'bespokerx_register_patterns' );
