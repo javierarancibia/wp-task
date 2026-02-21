@@ -141,5 +141,13 @@ function bespokerx_register_patterns() {
             'content' => $get_pattern_content( 'contact-hero.php' ),
         ]
     );
+
+    register_block_pattern(
+        'bespokerx/contact-map-form',
+        [
+            'title'   => 'Contact Map & Form Section',
+            'content' => $get_pattern_content( 'contact-map-form.php' ),
+        ]
+    );
 }
 add_action( 'init', 'bespokerx_register_patterns' );
