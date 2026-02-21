@@ -1,9 +1,8 @@
-/* ─── 1. CONTENEDOR PRINCIPAL Y FONDO ─── */
 .site-footer {
     background-image: url('../images/swirly-bg.jpg');
     background-size: cover;
     background-position: center;
-    background-blend-mode: overlay; /* Mantiene el fondo oscuro con textura sutil */
+    background-blend-mode: overlay; 
     color: #fff;
     padding: 100px 0 40px;
     position: relative;
@@ -25,6 +24,7 @@
 /* ─── 2. COLUMNA IZQUIERDA (TEXTO Y MAPA) ─── */
 .footer-info {
     position: relative;
+    z-index: 10;
 }
 
 .footer-big-title {
@@ -56,7 +56,7 @@
     flex-direction: column;
     gap: 20px;
     position: relative;
-    z-index: 10; /* Asegura que se pueda hacer clic por encima del mapa */
+    z-index: 10; 
 }
 
 .contact-item {
@@ -89,15 +89,14 @@
     top: -50px;
     left: 20%; /* Lo empuja hacia el centro/derecha detrás del formulario */
     width: 800px; /* Tamaño fijo grande */
-    opacity: 0.2; /* Transparencia exacta al original */
-    z-index: 0;
+    z-index: -1;
     pointer-events: none; /* Evita que bloquee clics */
 }
 
 .footer-map-bg img {
     width: 100%;
     height: auto;
-    filter: grayscale(100%) invert(1); /* Lo vuelve oscuro y azulado */
+    display: block;
 }
 
 /* ─── 3. COLUMNA DERECHA (FORMULARIO) ─── */
