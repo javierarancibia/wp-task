@@ -125,5 +125,13 @@ function bespokerx_register_patterns() {
             'content' => $get_pattern_content( 'reviews.php' ),
         ]
     );
+
+    register_block_pattern(
+        'bespokerx/reviews2',
+        [
+            'title'   => 'Reviews & Instagram Section',
+            'content' => $get_pattern_content( 'reviews2.php' ),
+        ]
+    );
 }
 add_action( 'init', 'bespokerx_register_patterns' );
