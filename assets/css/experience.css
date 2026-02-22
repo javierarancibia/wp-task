@@ -49,11 +49,14 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 .experience__image {
     width: 100%;
     margin: 0;
+    position: relative;
+    z-index: 2;
 }
 
 .experience__image img {
@@ -114,4 +117,46 @@
         grid-template-columns: 1fr;
         gap: 40px;
     }
+}
+
+/* =========================================
+   DECORATIVE SVG ELEMENTS
+   ========================================= */
+
+/* Top Pattern Frame */
+.experience__frame-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background-repeat: repeat-x;
+    background-position: top center;
+    background-size: contain;
+    z-index: 5; /* Keeps it above the background but below text if needed */
+    pointer-events: none; /* Prevents it from blocking clicks */
+}
+
+/* Ghosted Flower Logo */
+.experience__ghosted-flower {
+    position: absolute;
+    top: 10; 
+    right: 10%; 
+    width: 500px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 0; /* Keeps it strictly in the background */
+    pointer-events: none;
+}
+
+.experience__pattern__image {
+    position: absolute;
+    top: 0;
+    left: -50;
+    width: 495px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
 }

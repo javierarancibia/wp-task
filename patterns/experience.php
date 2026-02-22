@@ -9,8 +9,11 @@
 <!-- wp:group {"tagName":"section","className":"experience","layout":{"type":"constrained"}} -->
 <section class="wp-block-group experience">
 
-    <!-- Patrón decorativo fondo -->
     <div class="experience__bg-pattern"></div>
+
+    <div class="experience__frame-top" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/frame-2.svg');"></div>
+
+    <div class="experience__ghosted-flower" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/ghosted-logo.svg');"></div>
 
     <!-- THE BESPOKE EXPERIENCE -->
     <!-- wp:group {"className":"experience__intro","layout":{"type":"constrained","contentSize":"700px"}} -->
@@ -31,15 +34,16 @@
     <!-- wp:group {"className":"experience__tailored","layout":{"type":"flex","flexWrap":"wrap","alignItems":"center"}} -->
     <div class="wp-block-group experience__tailored">
 
-        <!-- Imagen izquierda -->
+        <div class="experience__pattern__image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/frame.svg');"></div>
         <!-- wp:image {"className":"experience__image"} -->
         <figure class="wp-block-image experience__image">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/doctor-patient.jpg" 
-                 alt="Bespoke Rx Doctor">
+            <img 
+                src="<?php echo get_template_directory_uri(); ?>/assets/images/doctor-patient.jpg" 
+                alt="Bespoke Rx Doctor"
+            >
         </figure>
         <!-- /wp:image -->
 
-        <!-- Texto derecha -->
         <!-- wp:group {"className":"experience__tailored-content","layout":{"type":"constrained"}} -->
         <div class="wp-block-group experience__tailored-content">
 
