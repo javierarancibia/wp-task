@@ -1,8 +1,12 @@
+/* ==========================================================================
+   SERVICES SECTION
+   ========================================================================== */
+
 .services-section {
-    background-color: #00202c;
+    background-color: #00202C; /* Dark teal fallback */
     background-size: cover;
     background-position: center;
-    padding: 120px 0;
+    padding: 120px 20px; /* Added horizontal padding for mobile */
     position: relative;
     overflow: hidden;
     min-height: 850px;
@@ -12,15 +16,22 @@
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.2fr 1fr; /* Espacio para imagen y lista */
+    grid-template-columns: 1.2fr 1fr; /* Space for image and list */
     align-items: center;
     gap: 50px;
     position: relative;
     z-index: 10;
 }
 
-/* --- Visuals (Imagen y Texto) --- */
+/* --- Visuals (Image & Text) --- */
 .services-visuals {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centers content within the grid cell */
+}
+
+/* Container for the image and the overlapping text */
+.image-stack {
     position: relative;
 }
 
@@ -28,7 +39,6 @@
     position: relative;
     width: 450px;
     height: 600px;
-    margin-left: 100px; /* Espacio para el texto a la izquierda */
     z-index: 2;
 }
 
@@ -36,109 +46,191 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 4px; /* Optional: adds a slight softening to the image edges */
 }
 
-/* El texto que solapa la imagen */
+/* The text that overlaps the image */
 .services-text-overlay {
     position: absolute;
     bottom: 50px;
-    left: 0;
+    left: -80px; /* Pulls the text out to the left of the image */
     z-index: 5;
-    pointer-events: none;
+    pointer-events: none; /* Allows clicking through the text to the image if needed */
 }
 
+/* "Our Services" eyebrow text */
 .services-text-overlay .eyebrow {
-    color: #fff;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 700;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Reduced margin to pull it closer to the title */
 }
 
+/* Main Title */
 .services-main-title {
-    color: #7fbac8; /* Aqua Bespoke */
+    color: #7FBAC8; /* Aqua Bespoke */
     font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 0.9;
+    line-height: 0.95;
     text-transform: uppercase;
-    font-family: serif;
+    font-family: var(--wp--preset--font-family--heading, serif);
+    margin: 0; /* Remove default margins to keep it tight with the eyebrow */
 }
 
-/* --- Botón Flotante Aqua --- */
+/* Floating Action Button (Arrow) */
 .floating-action-button {
     position: absolute;
     bottom: 20px;
-    left: -25px;
-    background: #7fbac8;
+    right: -30px; /* Moved to the right side of the image */
+    background: #7FBAC8;
+    color: #00202C;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-/* --- Lista de Servicios (Derecha) --- */
+.floating-action-button:hover {
+    transform: scale(1.1);
+}
+
+/* --- Navigation List --- */
 .services-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .service-item {
     display: flex;
     align-items: center;
-    padding: 15px 0;
+    padding: 20px 0;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .service-item .radio-dot {
-    width: 18px;
-    height: 18px;
-    border: 1px solid rgba(255,255,255,0.4);
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     margin-right: 20px;
     position: relative;
+    transition: all 0.3s ease;
 }
 
+/* Active State for the List Items */
 .service-item.active .radio-dot {
-    border-color: #7fbac8;
-    background: radial-gradient(circle, #7fbac8 40%, transparent 45%);
+    border-color: #7FBAC8;
+    background-color: #7FBAC8;
+    /* Create the dot-inside-a-ring effect */
+    box-shadow: inset 0 0 0 3px #00202C; 
 }
 
 .service-item .label {
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 2px;
-    font-size: 1.1rem;
-    transition: 0.3s;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .service-item.active .label {
-    color: #fff;
-    font-size: 1.3rem;
+    color: #ffffff;
+    font-size: 1.2rem;
 }
 
 .inline-learn {
-    margin-left: 15px;
-    color: #7fbac8;
-    font-size: 0.7rem;
+    margin-left: auto; /* Pushes the link to the far right */
+    color: #7FBAC8;
+    font-size: 0.75rem;
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
     opacity: 0;
-    transition: 0.3s;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
 }
 
 .service-item.active .inline-learn {
     opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
 }
 
-/* --- Patrones Específicos para esta Sección --- */
-
+/* Background Pattern positioning */
 .services-pattern-bottom {
     bottom: -250px;
     left: 25%;
     opacity: 0.2;
+}
+
+/* --- RESPONSIVE STYLES --- */
+@media (max-width: 992px) {
+    .services-section {
+        padding: 80px 20px;
+    }
+
+    /* Stack the layout vertically */
+    .services-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    /* Adjust image size for mobile */
+    .main-image-wrapper {
+        width: 100%;
+        max-width: 500px; /* Prevents it from getting too large on tablets */
+        height: 500px;
+    }
+
+    /* Reset text positioning to keep it readable on smaller screens */
+    .services-text-overlay {
+        position: relative;
+        bottom: 0;
+        left: 20px;
+        margin-top: -60px; /* Pulls text up over the bottom edge of the image */
+        padding: 0 20px;
+        text-align: center;
+        background: linear-gradient(to top, rgba(0,32,44,1) 40%, rgba(0,32,44,0) 100%);
+    }
+
+    .services-main-title {
+        font-size: 3rem; /* Ensure it fits on mobile */
+    }
+
+    .floating-action-button {
+        bottom: 80px; /* Adjusted so it doesn't clash with the new text position */
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-image-wrapper {
+        height: 400px;
+    }
+    
+    .services-main-title {
+        font-size: 2.5rem;
+    }
+    
+    .service-item .label {
+        font-size: 0.9rem;
+    }
+    
+    .service-item.active .label {
+        font-size: 1rem;
+    }
 }
