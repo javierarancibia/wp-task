@@ -1,3 +1,7 @@
+/* ==========================================================================
+   GALLERY SECTION
+   ========================================================================== */
+
 .gallery-section {
     background-color: #fff; /* Fondo blanco según la imagen */
     padding: 100px 0;
@@ -10,6 +14,7 @@
     margin: 0 auto;
     position: relative;
     z-index: 10;
+    padding: 0 40px; /* NUEVO: Espacio a cada lado de la imagen */
 }
 
 .gallery-image-wrapper {
@@ -23,7 +28,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.8); /* Oscurece un poco para que el texto resalte */
+    border-radius: 4px; /* Opcional: suaviza las esquinas de la imagen */
+    filter: brightness(0.7); /* Oscurece un poco más para asegurar que el texto blanco resalte */
 }
 
 /* --- Contenido de Texto --- */
@@ -32,47 +38,61 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
     width: 100%;
     color: #fff;
     z-index: 5;
+    /* NUEVO: Flexbox asegura que todo el contenido interior esté perfectamente centrado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
 .gallery-eyebrow {
     display: block;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-size: 14px;
+    font-size: 0.85rem;
     margin-bottom: 10px;
     font-weight: 700;
 }
 
 .gallery-title {
-    font-family: serif; /* O tu fuente de títulos */
-    font-size: clamp(3rem, 12vw, 120px);
+    font-family: var(--wp--preset--font-family--heading, serif);
+    /* Usando clamp para que el texto sea gigante en desktop y razonable en móvil */
+    font-size: clamp(4rem, 10vw, 120px); 
     text-transform: uppercase;
-    line-height: 0.8;
+    line-height: 0.9;
     margin: 0;
-    color: rgba(127, 186, 200, 0.7); /* El azul aqua con transparencia */
+    color: rgba(127, 186, 200, 0.9); /* Azul aqua con ligera transparencia */
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Ayuda a separar el texto de la foto */
 }
 
 .gallery-subtext {
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-size: 16px;
-    margin-top: 20px;
-    font-weight: 400;
+    font-size: 0.95rem;
+    margin-top: 15px;
+    font-weight: 700;
 }
 
 /* --- Botón Circular Inferior --- */
 .enter-gallery-button {
     position: absolute;
-    bottom: -50px; /* Sobresale de la imagen hacia el fondo blanco */
+    bottom: -60px; /* Sobresale de la imagen hacia el fondo blanco */
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
     height: 120px;
     z-index: 15;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.enter-gallery-button:hover {
+    transform: translateX(-50%) scale(1.05); /* Efecto hover */
 }
 
 .circle-text svg {
@@ -82,19 +102,20 @@
 }
 
 .circle-text text {
-    fill: #7fbac8;
-    font-size: 9px;
-    font-weight: bold;
+    fill: #7fbac8; /* Color aqua para el texto circular */
+    font-size: 9.5px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
+/* Círculo central con la flecha */
 .gallery-arrow {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #7fbac8;
+    background-color: #7fbac8; /* Color aqua sólido */
     color: #fff;
     width: 50px;
     height: 50px;
@@ -103,6 +124,7 @@
     align-items: center;
     justify-content: center;
     font-size: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra suave */
 }
 
 /* --- Patrones --- */
@@ -122,4 +144,43 @@
 @keyframes rotateText {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+@media (max-width: 768px) {
+    .gallery-section {
+        padding: 60px 0;
+    }
+
+    .gallery-container {
+        padding: 0 20px; /* Reduce el margen lateral en móviles */
+    }
+
+    .gallery-image-wrapper {
+        height: 450px; /* Reduce la altura de la imagen en móviles */
+    }
+
+    .gallery-eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    .gallery-subtext {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    .enter-gallery-button {
+        width: 100px;
+        height: 100px;
+        bottom: -50px;
+    }
+
+    .gallery-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
 }
