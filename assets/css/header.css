@@ -1,21 +1,22 @@
 /* ─── HEADER PRINCIPAL (FLOTANTE) ─────────────────────────────── */
 .site-header {
-    position: absolute; /* Esto lo pone por encima del Hero */
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
     z-index: 999;
     background: transparent !important;
+    margin-top: 3rem;
 }
 
 .main-header {
-    padding: 30px 60px;
+    padding: 30px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1400px;
-    margin: 20px auto 0 auto;
+    margin: 0 auto;
     width: 100%;
 }
 
@@ -25,40 +26,49 @@
     align-items: center;
     justify-content: flex-start;
     gap: 15px;
-    flex: 1;
+    flex: 1; /* Empuja el logo al centro perfecto */
 }
 
 .phone-circle {
-    width: 45px;
-    height: 45px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde gris/blanco fino */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--wp--preset--color--white);
+}
+
+.phone-text {
+    display: flex;
+    flex-direction: column;
 }
 
 .top-bar__label {
-    font-size: 14px;
+    font-size: 0.7rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 2px;
-    color: var(--wp--preset--color--white);
+    margin: 0 0 2px 0;
+    color: #ffffff;
 }
 
-.phone-icon {
-    color: var(--wp--preset--color--aqua);
-    font-size: 20px;
+.phone-number {
+    margin: 0;
 }
 
 .phone-number a {
-    color: var(--wp--preset--color--white);
+    color: #ffffff;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 18px;
-    display: block;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
     line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.phone-number a:hover {
+    color: #7FBAC8; /* Efecto hover en aqua */
 }
 
 /* ─── LOGO CENTRO ──────────────────────────────────────────────── */
@@ -70,20 +80,23 @@
 }
 
 .header-logo-wrapper img {
-    height: 50px;
+    height: 45px;
     width: auto;
 }
 
-/* ─── ELEMENTOS DERECHA (HAMBURGER) ───────────────────────────── */
+/* ─── ELEMENTOS DERECHA (HAMBURGER & MENU) ───────────────────── */
 .header-menu-wrapper {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     flex: 1;
+    position: relative; /* Clave para que el dropdown se alinee aquí */
 }
 
+/* El círculo exterior */
 .menu-circle {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     display: flex;
@@ -91,21 +104,79 @@
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    z-index: 10;
+    background: transparent;
 }
 
 .menu-circle:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: var(--wp--preset--color--aqua);
+    border-color: #ffffff;
 }
 
-.hamburger {
-    margin: 0;
-    color: var(--wp--preset--color--white);
-    font-size: 20px;
+/* ─── DROPDOWN MENU (Contact & Procedures) ───────────────────── */
+.header-dropdown-nav {
+    position: absolute;
+    top: 25px; /* Altura donde empieza el botón */
+    right: 60px; /* Se despliega hacia la izquierda del ícono */
+    background: rgba(0, 32, 44, 0.95); /* Fondo oscuro semitransparente */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
 }
 
-/* ─── AJUSTE DEL HERO (PARA QUE NO HAYA HUECOS) ──────────────── */
-/* Asegúrate de que el primer bloque de la página no tenga margin-top */
-.wp-site-blocks > :first-child {
-    margin-top: 0 !important;
+/* Hover: Muestra el menú cuando pasas el mouse por el wrapper derecho */
+.header-menu-wrapper:hover .header-dropdown-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.header-dropdown-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.header-dropdown-nav a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #7FBAC8; /* Se pinta de aqua al pasar el mouse */
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 20px;
+    }
+
+    /* 1. Oculta el teléfono por completo */
+    .header-phone-wrapper {
+        display: none;
+    }
+
+    /* 2. Empuja el logo a la izquierda para dejar la hamburguesa sola a la derecha */
+    .header-logo-wrapper {
+        justify-content: flex-start;
+    }
+    
+    .header-logo-wrapper img {
+        height: 35px; /* Hace el logo un poquito más chico para que quepa bien */
+    }
+
+    /* 3. Hace que el dropdown caiga hacia abajo en lugar de a la izquierda en móviles */
+    .header-dropdown-nav {
+        top: 60px;
+        right: 0;
+    }
 }

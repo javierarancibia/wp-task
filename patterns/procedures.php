@@ -23,7 +23,7 @@ $treatments = new WP_Query([
 <!-- wp:group {"tagName":"section","className":"procedures","layout":{"type":"constrained","wideSize":"100%"}} -->
 <section class="wp-block-group procedures">
 
-     <div class="contact-hero-titles">
+     <div class="procedures-contact-hero-titles">
         <h1 class="contact-title-massive">GALLERY</h1>
         <h2 class="contact-title-sub">Our Procedures</h2>
     </div>

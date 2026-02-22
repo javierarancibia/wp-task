@@ -1,30 +1,39 @@
 <header class="wp-block-group site-header">
-
     <div class="wp-block-group alignfull main-header">
 
-        <div class="wp-block-group header-phone-wrapper">
+        <div class="header-phone-wrapper">
             <div class="phone-circle">
-                <span class="phone-icon">📞</span> </div>
+                <svg class="phone-icon" viewBox="0 0 24 24" fill="#7FBAC8" width="18" height="18">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+            </div>
             <div class="phone-text">
                 <p class="top-bar__label">CALL TODAY</p>
                 <p class="phone-number"><a href="tel:+18132036196">813-203-6196</a></p>
             </div>
         </div>
 
-        <!-- wp:group {"className":"header-logo-wrapper","layout":{"type":"flex"}} -->
         <div class="wp-block-group header-logo-wrapper">
-            <!-- wp:image {"className":"site-logo"} -->
             <figure class="wp-block-image site-logo">
                 <img src="/wp-content/themes/bespokerx-theme/assets/images/Logo.svg" alt="Bespoke Rx Logo">
             </figure>
-            <!-- /wp:image -->
         </div>
-        <!-- /wp:group -->
 
         <div class="header-menu-wrapper">
+            
+            <nav class="header-dropdown-nav">
+                <a href="/procedures">Procedures</a>
+                <a href="/contact">Contact</a>
+            </nav>
+            
             <div class="menu-circle">
-                <p class="hamburger">☰</p>
+                <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" width="22" height="22">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="15" y2="18"></line>
+                </svg>
             </div>
+
         </div>
 
     </div>
