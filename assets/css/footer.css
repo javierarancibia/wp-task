@@ -283,11 +283,6 @@
     border-color: #84B9C7;
 }
 
-/* Iniciales para los círculos si no usas iconos SVG */
-.social-icon:nth-child(1)::before { content: 'ig'; font-size: 11px; }
-.social-icon:nth-child(2)::before { content: 'fb'; font-size: 11px; }
-.social-icon:nth-child(3)::before { content: 'yt'; font-size: 11px; }
-
 .copyright-text p, .credits p {
     margin: 0;
     font-size: 0.75rem;
