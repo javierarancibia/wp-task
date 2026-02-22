@@ -6,51 +6,51 @@
 
 .discover-section {
     background-color: var(--dark-green);
-    padding: 140px 0;
+    padding: 140px 20px; /* Padding lateral añadido para móviles */
     position: relative;
     overflow: hidden;
 }
 
-/* Patrones Geométricos (495px x 495px) */
+/* Patrones Geométricos */
 .pattern-bg {
     position: absolute;
-    width: 495px;
-    height: 495px;
+    width: clamp(250px, 40vw, 495px); /* Se escala en pantallas más chicas */
+    height: clamp(250px, 40vw, 495px);
     background-image: url('../images/frame.svg');
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.4;
+    opacity: 0.15; /* Bajé la opacidad un poco para que no compita con el texto */
     z-index: 1;
+    pointer-events: none;
 }
 
 .pattern-top-right {
-    top: -100px;
+    top: -50px;
     right: -50px;
-    z-index: 2;
-    filter: invert(85%) sepia(10%) saturate(1000%) hue-rotate(160deg);
 }
 
 .pattern-bottom-center {
-    bottom: -200px;
-    left: 35%;
-    z-index: 2;
-    filter: invert(85%) sepia(10%) saturate(1000%) hue-rotate(160deg);
+    bottom: -100px;
+    left: 10%;
 }
 
 .discover-container {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    height: 700px;
+    min-height: 700px;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Imagen con efectos */
 .discover-image-wrapper {
     position: absolute;
     top: 0;
-    left: 10%;
-    width: 60%;
+    left: 5%;
+    width: 65%; /* Usar % en lugar de px fijos */
+    max-width: 890px;
     height: 550px;
     z-index: 2;
 }
@@ -59,47 +59,53 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%) brightness(0.7);
+    filter: grayscale(100%) brightness(0.8); /* Brillo ligeramente subido */
     transform: scaleX(-1);
+    border-radius: 4px;
 }
 
 /* Título */
 .discover-main-title {
     position: absolute;
-    bottom: 25%; /* Ajustado para estar sobre el patrón inferior */
+    top: 250px; 
     left: 0;
     z-index: 4;
     color: var(--accent-aqua);
-    font-size: 5rem;
-    line-height: 0.9;
+    font-size: clamp(3rem, 6vw, 5.5rem); 
+    line-height: 1;
     text-transform: uppercase;
+    font-family: var(--wp--preset--font-family--heading, serif);
+    width: min-content;
 }
 
-/* LA TARJETA: Ajustes de posición y gradiente */
+/* LA TARJETA */
 .discover-card {
     position: absolute;
-    bottom: 70px; /* La baja respecto a la imagen */
-    right: -40px;  /* La mueve hacia la derecha, fuera del contenedor principal si es necesario */
-    width: 520px;
+    bottom: 20px; 
+    right: 0; 
+    width: 90%;
+    max-width: 520px; /* Max-width en lugar de width fijo */
     z-index: 10;
-    background: linear-gradient(to right, #002b3b, #00202c);
-    padding: 60px;
-    box-shadow: 20px 20px 60px rgba(0,0,0,0.4);
+    background: #002b3b;
+    padding: 60px 50px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5); /* Sombra más suave */
+    border-radius: 4px;
 }
 
-/* Estilos de la tarjeta */
 .card-subtitle {
     color: #fff;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     font-size: 1.1rem;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: var(--wp--preset--font-family--body, sans-serif);
 }
 
 .discover-card p {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.95rem;
-    line-height: 1.7;
+    line-height: 1.8;
     margin-bottom: 40px;
 }
 
@@ -108,13 +114,14 @@
     width: 100%;
     height: 2px;
     background: rgba(255,255,255,0.1);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .progress-bar-fill {
-    width: 35%; /* Valor de ejemplo */
+    width: 50%;
     height: 100%;
     background: var(--accent-aqua);
+    transition: width 0.3s ease;
 }
 
 .slider-controls-row {
@@ -123,12 +130,16 @@
     gap: 20px;
 }
 
-.slider-controls-row .arrows {
+.arrows {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     display: flex;
     gap: 15px;
     cursor: pointer;
+}
+
+.arrows span:hover {
+    color: var(--accent-aqua);
 }
 
 .counter {
@@ -140,16 +151,25 @@
 /* Botón Circular */
 .learn-more-circle {
     position: absolute;
-    right: -55px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 110px;
-    height: 110px;
+    right: -40px; /* Lo asoma fuera de la caja */
+    bottom: 40px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.learn-more-circle:hover {
+    transform: scale(1.05);
 }
 
 .learn-more-circle svg {
+    width: 100%;
+    height: 100%;
     animation: rotate 15s linear infinite;
     fill: var(--accent-aqua);
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .arrow-bg {
@@ -157,18 +177,103 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #add8e6; /* Color azul claro del círculo interior */
+    background: #7fbac8; /* Mismo aqua del texto */
     color: var(--dark-green);
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
 @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+/* ─── RESPONSIVE MÓVIL Y TABLET ─── */
+@media (max-width: 992px) {
+    .discover-section {
+        padding: 80px 20px;
+    }
+
+    .discover-container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Rompemos el position absolute para que se apilen */
+    .discover-image-wrapper {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        margin-bottom: 30px;
+    }
+
+    .discover-main-title {
+        position: relative;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .discover-card {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        padding: 40px 30px;
+        margin-top: -20px; 
+    }
+
+    .learn-more-circle {
+        right: 20px; /* Lo mete dentro de la caja en móviles para que no se corte la pantalla */
+        bottom: 20px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .arrow-bg {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+/* --- ANIMACIÓN DEL SLIDER --- */
+.slides-wrapper {
+    position: relative;
+    /* Dale una altura mínima para que la tarjeta no salte al cambiar de texto si uno es más largo que el otro */
+    min-height: 220px; 
+    margin-bottom: 20px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(30px); /* Empieza un poco a la derecha */
+    transition: all 0.4s ease-in-out;
+}
+
+.slide.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); /* Entra a su posición original */
+}
+
+/* Transición suave para la barra de progreso */
+.progress-bar-fill {
+    transition: width 0.4s ease-in-out;
 }

@@ -31,3 +31,45 @@ catItems.forEach(item => {
         }
     });
 });
+
+// Function for updating the Discover slider
+document.addEventListener('DOMContentLoaded', function() {
+    const card = document.querySelector('.discover-card');
+    if (!card) return; 
+
+    const slides = card.querySelectorAll('.slide');
+    const prevBtn = card.querySelector('.prev');
+    const nextBtn = card.querySelector('.next');
+    const counterText = card.querySelector('.counter');
+    const progressBar = card.querySelector('.progress-bar-fill');
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    function updateSlider() {
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+
+        counterText.textContent = (currentSlide + 1) + ' OF ' + totalSlides;
+
+        const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
+        progressBar.style.width = progressPercentage + '%';
+    }
+
+    nextBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+    });
+    
+    updateSlider();
+});
