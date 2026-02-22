@@ -7,8 +7,6 @@
 ?>
 
 <section class="wp-block-group contact-hero-section">
-    
-    <div class="contact-hero-overlay"></div>
 
     <div class="contact-hero-content">
         
