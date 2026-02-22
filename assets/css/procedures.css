@@ -1,164 +1,246 @@
-/* ─── PROCEDURES PAGE ──────────────────────────────── */
+/* ==========================================================================
+   PROCEDURES PAGE (BEFORE & AFTER GALLERY)
+   ========================================================================== */
+
 .procedures {
-    background-color: var(--wp--preset--color--white);
+    background-color: #ffffff;
     min-height: 100vh;
 }
 
-.procedures__hero {
-    background-color: var(--wp--preset--color--dark-green);
-    background-image: url('../images/abstract-curves.jpg');
+/* --- Typography (Titles) --- */
+.contact-hero-titles {
+    margin-bottom: 80px;
+    background-image: url('../images/swirly-bg-1.jpg');
     background-size: cover;
     background-position: center;
-    padding: 120px 80px 80px;
+    background-attachment: fixed; /* Optional: adds a slight parallax effect */
+    color: #ffffff;
+    padding: 200px;
     text-align: center;
+    overflow: hidden;
 }
 
-.procedures__hero-title {
-    font-family: var(--wp--preset--font-family--heading);
-    font-size: clamp(48px, 6vw, 96px);
+.contact-title-massive {
+    font-family: var(--wp--preset--font-family--heading, serif);
+    font-size: clamp(5rem, 12vw, 10rem); /* Scales beautifully on all screens */
     font-weight: 400;
-    color: var(--wp--preset--color--white);
-    margin-bottom: 16px;
+    letter-spacing: 5px;
+    margin: 0;
+    line-height: 1;
+    
+    /* Updated Figma gradient for the text */
+    background: linear-gradient(180deg, #7FBAC8 0%, rgba(127, 186, 200, 0) 85.56%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Optional: You can remove or lower the text-shadow if it interferes with the transparent fade */
+    text-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); 
+}
+.contact-title-sub {
+    font-family: sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin: -10px 0 0 0;
+    color: #ffffff;
 }
 
-.procedures__hero-subtitle {
-    font-family: var(--wp--preset--font-family--body);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--wp--preset--color--aqua);
-}
-
-/* Layout principal */
+/* --- Main Layout Wrapper --- */
 .procedures__wrapper {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 60px;
+    /* Grid is on the left (1fr), Sidebar is on the right (300px) */
+    grid-template-columns: 1fr 300px;
+    gap: 80px;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 10rem 15rem;
+    align-items: start;
 }
 
-/* Sidebar */
+/* --- Sidebar (Right Side) --- */
+.procedures__sidebar {
+    order: 2; /* Forces the sidebar to the right side of the grid */
+    position: sticky;
+    top: 100px; /* Keeps sidebar in view while scrolling */
+}
+
 .procedures__sidebar-title {
-    font-family: var(--wp--preset--font-family--body);
-    font-size: 11px;
+    font-family: var(--wp--preset--font-family--heading, serif);
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: var(--wp--preset--color--dark);
-    margin-bottom: 16px;
+    color: #333333;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eaeaea;
 }
 
 .procedures__categories {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Category List Items with Dashed Borders */
 .procedures__cat-item {
-    font-family: var(--wp--preset--font-family--body);
-    font-size: 14px;
-    color: var(--wp--preset--color--dark);
-    padding: 12px 20px;
+    font-family: var(--wp--preset--font-family--body, sans-serif);
+    font-size: 0.9rem;
+    color: #555555;
+    padding: 16px 20px;
     cursor: pointer;
-    border-radius: 2px;
+    border-bottom: 1px dashed #dcdcdc; /* Dashed line exactly like the reference */
     transition: all 0.2s ease;
+    background-color: transparent;
 }
 
 .procedures__cat-item:hover {
-    background-color: var(--wp--preset--color--cream);
+    color: #273D45;
+    background-color: #fafafa;
 }
 
+/* Active Category State */
 .procedures__cat-item.active {
-    background-color: var(--wp--preset--color--dark-green);
-    color: var(--wp--preset--color--white);
+    background-color: #273D45; /* Dark teal block */
+    color: #ffffff;
+    border-bottom-color: transparent; /* Hides dashed line when active */
+    font-weight: 600;
 }
 
-/* Grid */
+/* --- Procedures Grid (Left Side) --- */
 .procedures__grid {
+    order: 1; /* Forces the grid to the left side */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
     align-content: start;
 }
 
-/* Card */
+/* --- Procedure Card --- */
 .procedure-card {
-    background: var(--wp--preset--color--white);
-    border: 1px solid #eee;
+    background: #ffffff;
+    border: 1px solid #eaeaea; /* Thin flat border */
     overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.procedure-card:hover {
-    transform: translateY(-4px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .procedure-card__image {
     position: relative;
+    width: 100%;
+    background-color: #f9f9f9;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
-    aspect-ratio: 4/3;
 }
 
 .procedure-card__image img {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
-    transition: transform 0.4s ease;
 }
 
-.procedure-card:hover .procedure-card__image img {
-    transform: scale(1.05);
-}
-
+/* Top Left Zoom Icon Container */
 .procedure-card__overlay {
     position: absolute;
-    inset: 0;
-    background: rgba(0, 32, 44, 0.4);
+    top: 12px;
+    left: 12px;
+    width: 34px;
+    height: 34px;
+    background: #ffffff;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-.procedure-card:hover .procedure-card__overlay {
-    opacity: 1;
+.procedure-card__overlay:hover {
+    transform: scale(1.1);
 }
 
 .procedure-card__zoom {
-    font-size: 24px;
-    color: white;
+    font-size: 14px;
+    color: #555555;
+    line-height: 1;
 }
 
+/* Card Text Content */
 .procedure-card__content {
-    padding: 16px;
+    padding: 25px 15px;
     text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .procedure-card__title {
-    font-family: var(--wp--preset--font-family--body);
-    font-size: 12px;
+    font-family: var(--wp--preset--font-family--heading, serif);
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    line-height: 1.4;
     text-transform: uppercase;
-    color: var(--wp--preset--color--dark);
+    color: #555555;
+    margin: 0;
 }
 
-/* Cards ocultas por filtro */
+/* Hidden state for JS filtering */
 .procedure-card.hidden {
     display: none;
 }
 
-/* Responsive */
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .procedures__wrapper {
+        grid-template-columns: 1fr 250px;
+        gap: 40px;
+    }
+    .procedures__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .procedures__wrapper {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack sidebar and grid */
+        padding: 40px 20px;
+    }
+
+    .procedures__sidebar {
+        order: 1; /* Move sidebar to top on mobile */
+        position: static;
+        margin-bottom: 30px;
     }
 
     .procedures__grid {
-        grid-template-columns: repeat(2, 1fr);
+        order: 2; /* Move grid below sidebar on mobile */
+    }
+
+    /* Horizontal scroll or wrap for categories on mobile */
+    .procedures__categories {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .procedures__cat-item {
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .procedures__grid {
+        grid-template-columns: 1fr;
     }
 }

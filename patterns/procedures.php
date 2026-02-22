@@ -23,16 +23,13 @@ $treatments = new WP_Query([
 <!-- wp:group {"tagName":"section","className":"procedures","layout":{"type":"constrained","wideSize":"100%"}} -->
 <section class="wp-block-group procedures">
 
-    <!-- Hero banner -->
-    <div class="procedures__hero">
-        <h1 class="procedures__hero-title">Before & After Gallery</h1>
-        <p class="procedures__hero-subtitle">Real Patients. Bespoke Results.</p>
+     <div class="contact-hero-titles">
+        <h1 class="contact-title-massive">GALLERY</h1>
+        <h2 class="contact-title-sub">Our Procedures</h2>
     </div>
 
-    <!-- Contenido principal -->
     <div class="procedures__wrapper">
 
-        <!-- Sidebar categorías -->
         <aside class="procedures__sidebar">
             <h3 class="procedures__sidebar-title">Categories</h3>
             <ul class="procedures__categories">
@@ -47,7 +44,6 @@ $treatments = new WP_Query([
             </ul>
         </aside>
 
-        <!-- Grid de treatments -->
         <div class="procedures__grid">
             <?php if( $treatments->have_posts() ) : ?>
                 <?php while( $treatments->have_posts() ) : $treatments->the_post(); ?>
