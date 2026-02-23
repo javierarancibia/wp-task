@@ -120,7 +120,6 @@
     display: block;
 }
 
-/* ─── COLUMNA DERECHA (FORMULARIO) ─── */
 .footer-form-wrapper {
     background: linear-gradient(123.86deg, #00202C 0%, #15323e 100%);    
     padding: 50px;
@@ -130,6 +129,7 @@
     max-width: 550px;
     margin-left: auto;
     width: 100%;
+    box-sizing: border-box; 
 }
 
 .bespoke-footer-form input,
@@ -327,6 +327,22 @@
     text-decoration: none;
 }
 
+/* ─── COLUMNA DERECHA (FORMULARIO) - GENERAL ─── */
+.footer-form-wrapper {
+    background: linear-gradient(123.86deg, #00202C 0%, #15323e 100%);    
+    padding: 50px;
+    box-shadow: -10px 15px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 10;
+    max-width: 550px;
+    margin-left: auto;
+    width: 100%;
+    /* ESTO EVITA QUE SE DESBORDE HACIA LA DERECHA */
+    box-sizing: border-box; 
+}
+
+/* ... tu otro CSS se queda igual ... */
+
 /* ─── RESPONSIVE MÓVIL ─── */
 @media (max-width: 992px) {
     .site-footer {
@@ -343,12 +359,15 @@
     }
 
     .footer-form-wrapper {
-        padding: 30px 20px;
-        margin: 0 auto;
+        padding: 40px 20px;
+        /* FUERZA EL CENTRADO ABSOLUTO */
+        margin: 0 auto !important; 
+        width: 100%;
+        max-width: 100%; /* Permite que ocupe todo el ancho disponible en móvil */
     }
 
     .footer-bottom-bar {
-        margin-top: 50px; /* Reduce el espacio enorme antes de la barra inferior */
+        margin-top: 50px; 
         flex-direction: column;
         gap: 20px;
         text-align: center;
