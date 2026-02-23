@@ -12,6 +12,7 @@
     <div class="reviews-container">
         
         <div class="testimonial-card">
+            
             <div class="quote-icon">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/vector.svg" alt="Quote">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/vector.svg" alt="Quote">
@@ -25,21 +26,24 @@
                     <span class="btn-arrow">→</span> VIEW ALL TESTIMONIALS
                 </a>
             </div>
+
         </div>
 
         <div class="reviews-display">
+            
             <div class="ghosted-logo">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ghosted-logo.svg" alt="Decoration">
             </div>
 
             <div class="rating-info">
+                <span class="rating-label">5 / 5 STAR RATING</span>
                 <div class="stars">
                     <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
                 </div>
-                <span class="rating-label">5 / 5 STAR RATING</span>
             </div>
 
             <h2 class="reviews-big-title">Reviews</h2>
+
         </div>
 
     </div>

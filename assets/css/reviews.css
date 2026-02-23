@@ -1,6 +1,10 @@
+/* ==========================================================================
+   REVIEWS SECTION
+   ========================================================================== */
+
 .reviews-section {
-    background-color: #00202c;
-    padding: 120px 0 0 0;
+    background-color: #00202C; /* Dark Teal Base */
+    padding: 120px 20px 0px 20px; /* Added horizontal padding for mobile safety */
     position: relative;
     overflow: hidden;
 }
@@ -9,116 +13,199 @@
     max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    grid-template-columns: 1fr 1fr; /* Two equal columns on desktop */
+    align-items: center; /* Vertically centers the two blocks */
     gap: 80px;
     position: relative;
     z-index: 10;
 }
 
-/* --- Tarjeta Blanca --- */
+/* --- Left Side: White Card --- */
 .testimonial-card {
-    background: #fff;
-    padding: 80px 60px;
+    background: #ffffff;
+    padding: 80px 60px 60px 60px; /* Extra padding top to make room for quotes */
     position: relative;
-    box-shadow: 20px 20px 60px rgba(0,0,0,0.3);
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.3);
 }
 
+/* Overlapping Quote Icons */
 .quote-icon {
     position: absolute;
-    top: -35px; /* Ajusta para que "pise" el borde superior */
+    top: -80px; /* Pulls it up over the top edge */
     left: 50%;
-    transform: translateX(-50%);
-    display: flex; /* Alinea los SVG uno al lado del otro */
-    gap: 8px;      /* Espacio entre la primera y la segunda comilla */
+    transform: translateX(-50%); /* Perfectly centers it horizontally */
+    display: flex; 
+    gap: 15px; 
     z-index: 20;
 }
 
+/* Ensure SVG quotes scale properly if needed */
+.quote-icon img {
+    width: 87px;
+    height: auto; /* Adjust this based on actual SVG size */
+}
+
+/* Text Content */
 .testimonial-text {
-    color: #333;
-    font-size: 1.1rem;
+    color: #333333;
+    font-family: var(--wp--preset--font-family--body, sans-serif);
+    font-size: 1.05rem;
     line-height: 1.8;
-    margin-bottom: 30px;
-    font-style: italic;
+    margin: 0 0 30px 0;
 }
 
 .testimonial-author {
-    color: #00202c;
-    font-weight: bold;
+    color: #00202C;
+    font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    font-size: 0.9rem;
+    margin: 0 0 40px 0;
 }
 
-/* Botón View All */
+/* Button */
 .btn-all-testimonials {
     display: inline-flex;
     align-items: center;
-    gap: 15px;
-    padding: 12px 25px;
-    border: 1px solid #7fbac8;
-    border-radius: 30px;
-    color: #7fbac8;
+    gap: 10px;
+    padding: 14px 30px;
+    background-color: #84B9C7; /* Solid Aqua fill */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 50px; /* Pill shape */
     text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: bold;
+    font-size: 0.75rem;
+    font-weight: 800;
     letter-spacing: 1px;
+    text-transform: uppercase;
     transition: all 0.3s ease;
 }
 
 .btn-all-testimonials:hover {
-    background: #7fbac8;
-    color: #fff;
+    background-color: #00202C; /* Turns dark on hover */
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* --- Display Derecho --- */
+/* --- Right Side: Display Panel --- */
 .reviews-display {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+/* Big Ghosted Logo behind text */
 .ghosted-logo {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 120%; /* Sobresale para el efecto de fondo */
+    width: 120%; /* Massive scale */
+    max-width: 800px;
     z-index: 1;
+    pointer-events: none;
 }
 
+/* Rating Info (Stars & Text) */
 .rating-info {
     position: relative;
     z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between text and stars */
     margin-bottom: 20px;
 }
 
-.stars {
-    color: #7fbac8;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
 .rating-label {
-    color: #fff;
+    color: #ffffff;
     letter-spacing: 3px;
-    font-weight: bold;
-    font-size: 0.9rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
 }
 
+.stars {
+    color: #84B9C7; /* Aqua stars */
+    font-size: 1.2rem;
+    display: flex;
+    gap: 5px;
+}
+
+/* Big "REVIEWS" Text */
 .reviews-big-title {
     position: relative;
     z-index: 5;
-    font-family: serif;
-    font-size: clamp(5rem, 10vw, 7rem);
-    color: #7fbac8;
+    font-family: var(--wp--preset--font-family--heading, serif);
+    font-size: clamp(4rem, 8vw, 8rem); /* Massive responsive scaling */
+    color: #84B9C7;
     text-transform: uppercase;
-    line-height: 0.8;
+    line-height: 0.9;
     margin: 0;
 }
 
-/* --- Patrón superior --- */
+/* --- Background Pattern --- */
 .reviews-pattern-top {
+    position: absolute;
     top: 0;
     right: 0;
-    width: 495px;
-    opacity: 0.1;
+    width: 400px; /* Adjust based on pattern size */
+    height: 100px;
+    background-image: url('../images/frame.svg'); /* Update path if needed */
+    background-repeat: repeat-x;
+    background-size: contain;
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+@media (max-width: 992px) {
+    /* Stack elements vertically on tablets and mobile */
+    .reviews-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    /* Reverse order: Title on top, card on bottom for mobile flow */
+    .reviews-display {
+        order: -1; 
+        align-items: center; /* Center everything textually */
+        text-align: center;
+    }
+
+    .rating-info {
+        flex-direction: column; /* Stack text and stars */
+        gap: 10px;
+    }
+
+    .testimonial-card {
+        padding: 60px 30px 40px 30px; /* Reduce padding to save screen space */
+        text-align: center;
+    }
+    .quote-icon {
+        position: absolute;
+        top: 10px; 
+        left: 50%;
+        transform: translateX(-50%); 
+        display: flex; 
+        gap: 5px; 
+        z-index: 20;
+    }
+
+    .quote-icon img {
+        height: 100px; /* Smaller quotes */
+    }
+
+    .testimonial-text {
+        font-size: 0.95rem; /* Slightly smaller text */
+        margin-top: 5rem;
+    }
+
+    .btn-all-testimonials {
+        justify-content: center; /* Center button text */
+    }
 }
