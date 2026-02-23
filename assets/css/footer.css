@@ -18,10 +18,10 @@
     gap: 40px;
     position: relative;
     z-index: 5;
-    align-items: center; /* Centra verticalmente ambas columnas */
+    padding: 0 20px; /* Padding lateral de seguridad */
 }
 
-/* ─── 2. COLUMNA IZQUIERDA (TEXTO Y MAPA) ─── */
+/* ─── COLUMNA IZQUIERDA ─── */
 .footer-info {
     position: relative;
     z-index: 10;
@@ -30,25 +30,27 @@
 .footer-big-title {
     font-family: var(--wp--preset--font-family--heading, serif);
     font-size: clamp(3rem, 5vw, 4.5rem);
-    color: #84B9C7; /* Aqua claro */
+    color: #84B9C7;
     line-height: 1.1;
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
     font-weight: 400;
 }
 
 .footer-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     max-width: 400px;
     line-height: 1.6;
+    font-weight: bold;
 }
 
 .footer-notice {
     font-size: 0.85rem;
-    opacity: 0.6;
+    color: #84B9C7; /* Texto azul claro como en la imagen */
     margin-bottom: 40px;
+    line-height: 1.5;
 }
 
 .contact-links {
@@ -65,32 +67,51 @@
     gap: 15px;
 }
 
+/* Alinear arriba si hay mucho texto (como los horarios) */
+.contact-item.align-top {
+    align-items: flex-start;
+}
+
 .contact-icon {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border: 1px solid rgba(132, 185, 199, 0.4);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
     flex-shrink: 0;
+}
+
+.contact-icon img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
 }
 
 .contact-item p {
     margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    font-weight: 600;
 }
 
-/* --- EL MAPA DE FONDO --- */
+.hours-text p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    font-weight: 600;
+}
+
+/* ─── EL MAPA DE FONDO ─── */
 .footer-map-bg {
     position: absolute;
     top: -50px;
-    left: 20%; /* Lo empuja hacia el centro/derecha detrás del formulario */
-    width: 800px; /* Tamaño fijo grande */
+    left: 20%;
+    width: 800px; 
     z-index: -1;
-    pointer-events: none; /* Evita que bloquee clics */
+    pointer-events: none; 
+    opacity: 0.6; /* Un poco más sutil */
 }
 
 .footer-map-bg img {
@@ -99,29 +120,29 @@
     display: block;
 }
 
-/* ─── 3. COLUMNA DERECHA (FORMULARIO) ─── */
+/* ─── COLUMNA DERECHA (FORMULARIO) ─── */
 .footer-form-wrapper {
-    background: linear-gradient(123.86deg, #00202C 0%, #26414C 100%);    padding: 50px;
-    box-shadow: -10px 15px 40px rgba(0, 0, 0, 0.4); /* Sombra para resaltar sobre el mapa */
+    background: linear-gradient(123.86deg, #00202C 0%, #15323e 100%);    
+    padding: 50px;
+    box-shadow: -10px 15px 40px rgba(0, 0, 0, 0.4);
     position: relative;
     z-index: 10;
     max-width: 550px;
     margin-left: auto;
-    top: 80px;
+    width: 100%;
 }
 
-/* Inputs y Textarea */
 .bespoke-footer-form input,
 .bespoke-footer-form select,
 .bespoke-footer-form textarea {
     width: 100%;
-    background-color: #273D45; /* Fondo más claro que el bloque principal */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Borde súper fino */
-    border-radius: 0; /* Bordes totalmente rectos */
-    padding: 16px 20px;
-    margin-bottom: 15px;
+    background-color: #203a45; /* Color sólido sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 2px; 
+    padding: 14px 20px;
+    margin-bottom: 12px;
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     outline: none;
     box-sizing: border-box;
 }
@@ -132,11 +153,11 @@
 }
 
 .bespoke-footer-form textarea {
-    min-height: 120px;
+    min-height: 100px;
     resize: none;
 }
 
-/* Select con Icono de Círculo/Flecha */
+/* Select */
 .select-wrapper {
     position: relative;
     width: 100%;
@@ -145,6 +166,7 @@
 .select-wrapper select {
     appearance: none;
     cursor: pointer;
+    color: rgba(255, 255, 255, 0.5); /* Color de placeholder */
 }
 
 .select-wrapper::after {
@@ -164,23 +186,18 @@
     pointer-events: none;
 }
 
-/* ─── 4. FORM FOOTER (Checkbox y Botón) ─── */
-.form-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* ─── FORM COMPLIANCE & BUTTON ─── */
+.form-compliance {
     margin-top: 15px;
+    margin-bottom: 25px;
 }
 
-/* Checkbox Cuadrado Personalizado */
 .checkbox-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
-    padding-left: 30px;
+    padding-left: 25px;
     cursor: pointer;
-    font-size: 0.85rem;
-    color: #fff;
     user-select: none;
 }
 
@@ -194,18 +211,17 @@
 
 .checkmark {
     position: absolute;
-    top: 50%;
+    top: 2px;
     left: 0;
-    transform: translateY(-50%);
-    height: 16px;
-    width: 16px;
-    border: 1px solid #84B9C7; /* Borde aqua */
+    height: 14px;
+    width: 14px;
+    border: 1px solid #fff; 
     background-color: transparent;
     border-radius: 2px;
 }
 
 .checkbox-container input:checked ~ .checkmark {
-    background-color: #84B9C7;
+    background-color: #fff;
 }
 
 .checkmark:after {
@@ -219,42 +235,57 @@
 }
 
 .checkbox-container .checkmark:after {
-    left: 5px;
+    left: 4px;
     top: 1px;
-    width: 4px;
-    height: 8px;
-    border: solid #1A2E35; /* El 'tick' es del color del fondo del formulario */
+    width: 3px;
+    height: 7px;
+    border: solid #00202C; 
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
 
-/* Botón Submit con Anillo Exterior */
+.label-text {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    font-style: italic; /* Como en la imagen */
+}
+
+.label-text a {
+    color: #84B9C7;
+    text-decoration: none;
+}
+
+.form-submit-row {
+    text-align: right; /* Alinea el botón a la derecha */
+}
+
 .btn-submit {
     background-color: #84B9C7;
     color: #fff;
     border: none;
-    padding: 12px 25px;
+    padding: 10px 30px;
     border-radius: 30px;
-    font-weight: bold;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
     cursor: pointer;
-    /* El truco del box-shadow crea el espacio y el anillo exterior sin editar el HTML */
-    box-shadow: 0 0 0 4px #1A2E35, 0 0 0 5px rgba(132, 185, 199, 0.6);
+    box-shadow: 0 0 0 3px #15323e, 0 0 0 4px #84B9C7; /* Doble anillo */
     transition: all 0.3s ease;
 }
 
 .btn-submit:hover {
     background-color: #fff;
-    color: #1A2E35;
+    color: #00202C;
+    box-shadow: 0 0 0 3px #15323e, 0 0 0 4px #fff;
 }
 
-/* ─── 5. BARRA INFERIOR (Redes y Copyright) ─── */
+/* ─── BARRA INFERIOR ─── */
 .footer-bottom-bar {
     max-width: 1200px;
-    margin: 250px auto 0;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 100px auto 0; /* Margen ajustado */
+    padding: 30px 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -268,15 +299,17 @@
 .social-icon {
     width: 35px;
     height: 35px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0; /* Oculta el texto */
     transition: 0.3s;
+}
+
+.social-icon img {
+    width: 14px;
+    height: 14px;
 }
 
 .social-icon:hover {
@@ -292,4 +325,32 @@
 .copyright-text a {
     color: #84B9C7;
     text-decoration: none;
+}
+
+/* ─── RESPONSIVE MÓVIL ─── */
+@media (max-width: 992px) {
+    .site-footer {
+        padding: 60px 0 30px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr; /* Apila las columnas */
+        gap: 60px;
+    }
+
+    .footer-map-bg {
+        display: none; /* Oculta el mapa en móvil para no saturar */
+    }
+
+    .footer-form-wrapper {
+        padding: 30px 20px;
+        margin: 0 auto;
+    }
+
+    .footer-bottom-bar {
+        margin-top: 50px; /* Reduce el espacio enorme antes de la barra inferior */
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
 }
