@@ -162,24 +162,24 @@ add_action( 'init', 'bespokerx_register_patterns' );
 
 // ─── CUSTOM POST TYPE: PROCEDURES ───────────────────
 function bespokerx_register_cpt() {
-    register_post_type( 'treatment', [
+    register_post_type('treatment', [
         'labels' => [
-            'name'          => 'Treatments',
+            'name' => 'Treatments',
             'singular_name' => 'Treatment',
-            'add_new_item'  => 'Add New Treatment',
-            'edit_item'     => 'Edit Treatment',
+            'add_new_item' => 'Add New Treatment',
+            'edit_item' => 'Edit Treatment',
         ],
         'public'       => true,
-        'has_archive'  => true,
         'show_in_rest' => true,
-        'supports'     => [ 'title', 'thumbnail', 'excerpt' ],
+        'supports'     => ['title', 'thumbnail', 'excerpt'],
         'menu_icon'    => 'dashicons-heart',
-        'rewrite'      => [ 'slug' => 'procedures' ],
+        'has_archive'  => 'treatments',
+        'rewrite'      => ['slug' => 'treatments'],
     ]);
 }
-add_action( 'init', 'bespokerx_register_cpt' );
+add_action('init', 'bespokerx_register_cpt');
 
-// ─── TAXONOMÍA: TREATMENT CATEGORY ──────────────────
+// ─── TAXONOMY: TREATMENT CATEGORY ──────────────────
 function bespokerx_register_taxonomy() {
     register_taxonomy( 'treatment_category', 'treatment', [
         'labels' => [
