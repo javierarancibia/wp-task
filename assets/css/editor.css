@@ -1513,3 +1513,407 @@
         display: none; /* Hide lines on mobile for cleaner look */
     }
 }
+
+/* ==========================================================================
+   CONTACT HERO SECTION
+   ========================================================================== */
+
+.contact-hero-section {
+    position: relative;
+    /* Replace with your actual city background image path */
+    background-image: url('../images/hero-contact.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: adds a slight parallax effect */
+    color: #ffffff;
+    padding: 200px 0 100px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* --- Content Wrapper --- */
+.contact-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Typography (Titles) --- */
+.contact-hero-titles {
+    margin-bottom: 80px;
+}
+
+.contact-title-massive {
+    font-family: var(--wp--preset--font-family--heading, serif);
+    font-size: clamp(5rem, 12vw, 10rem); /* Scales beautifully on all screens */
+    font-weight: 400;
+    letter-spacing: 5px;
+    margin: 0;
+    line-height: 1;
+    
+    /* Updated Figma gradient for the text */
+    background: linear-gradient(180deg, #7FBAC8 0%, rgba(127, 186, 200, 0) 85.56%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Optional: You can remove or lower the text-shadow if it interferes with the transparent fade */
+    text-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); 
+}
+.contact-title-sub {
+    font-family: sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin: -10px 0 0 0;
+    color: #ffffff;
+}
+
+/* --- Info Grid (3 Columns) --- */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.contact-info-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Icons --- */
+.contact-icon-circle {
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgba(132, 185, 199, 0.4); /* Subtle aqua border */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* --- Column Text --- */
+.contact-col-heading {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.contact-col-text,
+.contact-col-text a {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.6); /* Muted white text */
+    text-decoration: none;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.contact-col-text a:hover {
+    color: #84B9C7; /* Aqua highlight on hover */
+}
+
+/* --- Social Media Row --- */
+.contact-social-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.contact-social-link {
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px; /* Text size for initials (ig, fb, yt) */
+    text-transform: lowercase;
+    transition: all 0.3s ease;
+}
+
+.contact-social-link:hover {
+    border-color: #84B9C7;
+    color: #84B9C7;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .contact-title-sub {
+        margin-top: 0;
+    }
+}
+
+/* ==========================================================================
+   CONTACT MAP & FLOATING FORM SECTION
+   ========================================================================== */
+
+.contact-map-section {
+    position: relative;
+    width: 100%;
+    /* No top padding here so the form can easily overlap the section above */
+}
+
+/* --- Optional Top Pattern Strip --- */
+.cm-pattern-strip {
+    height: 40px;
+    width: 100%;
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.5;
+}
+
+/* --- Floating Form Wrapper --- */
+.cm-form-wrapper {
+    position: relative;
+    z-index: 20;
+    max-width: 650px; /* Width of the form card */
+    margin: -100px auto 40px auto; /* THE MAGIC: -180px pulls it up over the Hero section */
+    background-color: #ffffff;
+    box-shadow: 0 25px 50px rgba(0, 32, 44, 0.15); /* Soft dark shadow */
+    padding: 60px 50px;
+    border-radius: 4px; /* Very subtle rounded corners */
+}
+
+/* --- Form Inputs --- */
+.cm-floating-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cm-input-group {
+    position: relative;
+}
+
+.cm-floating-form input,
+.cm-floating-form select,
+.cm-floating-form textarea {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #E0E0E0; /* Thin light grey bottom line */
+    padding: 15px 30px 15px 0; /* Right padding leaves space for icons */
+    font-size: 0.75rem;
+    color: #555555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.cm-floating-form input::placeholder,
+.cm-floating-form textarea::placeholder {
+    color: #A0A0A0; /* Light grey placeholder text */
+}
+
+.cm-floating-form input:focus,
+.cm-floating-form select:focus,
+.cm-floating-form textarea:focus {
+    border-bottom-color: #7FBAC8; /* Aqua highlight on focus */
+}
+
+.cm-floating-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.cm-floating-form select {
+    appearance: none;
+    cursor: pointer;
+    color: #A0A0A0; /* Matches placeholder until selected */
+}
+
+/* --- Fake Icons for Inputs (using SVG data URIs for exact look) --- */
+.cm-input-group::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15px;
+    width: 14px;
+    height: 14px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Add custom icons for each field type */
+.cm-input-user { background-image: none; } /* Add your user icon SVG via CSS if needed */
+.cm-input-select { background-image: none; } /* Add dropdown arrow */
+
+/* --- Disclaimer & Checkbox --- */
+.cm-disclaimer-group {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.cm-checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+.cm-checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Custom Checkbox Design */
+.cm-checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    border: 1px solid #7FBAC8;
+    border-radius: 2px;
+    background-color: transparent;
+}
+
+.cm-checkbox-container input:checked ~ .cm-checkmark {
+    background-color: #7FBAC8;
+}
+
+.cm-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.cm-checkbox-container input:checked ~ .cm-checkmark:after {
+    display: block;
+}
+
+.cm-checkbox-container .cm-checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.cm-disclaimer-text {
+    font-size: 0.65rem;
+    line-height: 1.6;
+    color: #888888;
+    font-style: italic;
+}
+
+/* --- Submit Button (Aqua with double border) --- */
+.cm-btn-submit {
+    align-self: flex-start; /* Aligns to the left */
+    background-color: #7FBAC8;
+    color: #ffffff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 4px #7FBAC8; /* The double ring effect */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.cm-btn-submit:hover {
+    background-color: #1A2E35;
+    box-shadow: 0 0 0 3px #ffffff, 0 0 0 4px #1A2E35;
+}
+
+/* =========================================
+   BACKGROUND MAP CONTAINER
+   ========================================= */
+/* =========================================
+   BACKGROUND MAP CONTAINER
+   ========================================= */
+.cm-map-container {
+    position: absolute;
+    top: 40px; /* Starts below the pattern strip */
+    /* --- CAMBIOS PARA EL ANCHO Y CENTRADO --- */
+    left: 50%;
+    transform: translateX(-50%); /* Centra el contenedor */
+    width: 94%; /* Deja un pequeño margen a los lados (3% a cada lado) */
+    max-width: 1400px; /* Ancho máximo para pantallas muy grandes */
+    /* ----------------------------------------- */
+    height: 100%;
+    z-index: 1; /* Sits behind the form */
+    min-height: 600px;
+}
+
+/* --- NUEVO: DIFUMINADO SUPERIOR (FADE) --- */
+.cm-map-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px; /* Altura del efecto de difuminado */
+    /* Degradado de blanco sólido a transparente */
+    background: linear-gradient(to bottom, #ffffff 40%, rgba(255, 255, 255, 0) 100%);
+    z-index: 2; /* Se coloca sobre el mapa */
+    pointer-events: none; /* Permite que los clics pasen a través (aunque en esta zona no es crítico) */
+}
+
+.cm-map-container iframe {
+    /* Filters to make standard Google Maps look like the desaturated light-grey design */
+    filter: grayscale(100%) opacity(0.5) contrast(1.1) brightness(1.2);
+    pointer-events: none; /* Prevents accidental scrolling when scrolling past */
+    /* Asegura que el iframe llene su contenedor */
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .cm-form-wrapper {
+        margin: -100px 20px 40px 20px; /* Smaller negative margin on mobile */
+        padding: 40px 30px;
+    }
+
+    /* En móviles, el mapa puede ocupar el ancho completo */
+    .cm-map-container {
+        width: 100%;
+        left: 0;
+        transform: none;
+    }
+    
+    /* Ajustar la altura del difuminado en móviles */
+    .cm-map-container::before {
+        height: 150px;
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .cm-form-wrapper {
+        margin: -100px 20px 40px 20px; /* Smaller negative margin on mobile */
+        padding: 40px 30px;
+    }
+}
