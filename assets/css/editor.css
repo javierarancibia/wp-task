@@ -1,0 +1,1515 @@
+/* ─── FONTS ───────────────────────────────────────────────────── */
+/* FreightNeo Pro font - Add font files to assets/fonts/ folder */
+@font-face {
+    font-family: 'FreightNeo Pro';
+    src: url('../fonts/FreightNeoPro-Regular.woff2') format('woff2'),
+         url('../fonts/FreightNeoPro-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* ==========================================================================
+   HERO HEADER WRAPPER
+   ========================================================================== */
+.hero-header-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #00202C; /* Fallback dark teal */
+}
+
+.hero-header-inner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Vertically centers the main content */
+    background-image: url('../images/hero-bg.png'); /* Make sure path matches your setup */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Dark Teal Overlay */
+.hero-header-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Gradient overlay to ensure text readability */
+    background: linear-gradient(180deg, rgba(0, 32, 44, 0.4) 0%, rgba(0, 32, 44, 0.85) 100%);
+    z-index: 1;
+}
+
+.hero-header-inner > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================
+   HERO CONTENT (Titles & Button)
+   ========================================= */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Main Title (Aqua) */
+.hero-content h1.hero-title {
+    font-family: var(--wp--preset--font-family--heading, serif);
+    font-size: clamp(2.5rem, 6vw, 5.5rem) !important; 
+    line-height: 1.1 !important;
+    letter-spacing: 2px;
+    color: #84B9C7 !important; /* Aqua color */
+    margin: 0 0 15px 0 !important;
+    white-space: normal; 
+    font-weight: 400; /* Thinner elegant weight */
+}
+
+/* Subtitle (White) */
+.hero-content h2.hero-subtitle {
+    font-family: var(--wp--preset--font-family--body, sans-serif);
+    font-size: clamp(1rem, 2.5vw, 1.6rem) !important;
+    letter-spacing: 5px !important; /* Wide tracking */
+    color: #ffffff !important; 
+    margin: 0 0 40px 0 !important;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* =========================================
+   CTA BUTTON (Solid Aqua Pill)
+   ========================================= */
+.wp-block-buttons {
+    margin-top: 10px;
+}
+
+.hero-cta .wp-block-button__link {
+    background-color: #84B9C7 !important; 
+    border: none !important;
+    border-radius: 50px !important;
+    outline: 1px solid #84B9C7 !important; 
+    outline-offset: 4px !important;
+    color: #ffffff !important;
+    padding: 14px 35px !important;
+    font-size: 0.85rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease !important;
+    gap: 10px;
+}
+
+.hero-cta .wp-block-button__link:hover {
+    background-color: #ffffff !important;
+    outline-color: #ffffff !important;
+}
+
+.hero-cta .wp-block-button__link::after {
+    content: '→';
+    display: inline-block;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Hover State */
+.hero-cta .wp-block-button__link:hover {
+    background-color: #ffffff !important; /* Turns white on hover */
+    color: #84B9C7 !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta .wp-block-button__link:hover::after {
+    animation: arrow-fly 0.5s ease forwards;
+}
+
+@keyframes arrow-fly {
+    0% { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+    40% { 
+        transform: translateX(15px); /* Se desliza a la derecha */
+        opacity: 0;                  /* Desaparece */
+    }
+    50% { 
+        transform: translateX(-15px); /* Se teletransporta a la izquierda oculta */
+        opacity: 0; 
+    }
+    100% { 
+        transform: translateX(0);     /* Vuelve a su posición original */
+        opacity: 1;                   /* Aparece de nuevo */
+    }
+}
+
+/* =========================================
+   EXPLORE SECTION (Fixed to bottom)
+   ========================================= */
+.explore-section {
+    position: absolute;
+    bottom: 0; /* Anchors strictly to the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.explore-text {
+    color: #ffffff !important;
+    font-family: var(--wp--preset--font-family--body, sans-serif);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0 0 15px 0 !important;
+    opacity: 0.9;
+}
+
+/* --- EXPLORE LINE & ANIMATION --- */
+
+.explore-line {
+    width: 1px;
+    height: 100px; /* Updated to 100px to match DevTools */
+    margin-top: 15px; /* Matches the 1rem margin-top */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    transform-origin: 50% 0%;
+    user-select: none;
+    /* Exact animation properties from your screenshot */
+    animation: scroll-down-hint 1.5s ease-in-out 0.25s infinite normal none running;
+}
+
+/* Keyframes to create the falling line effect */
+@keyframes scroll-down-hint {
+    0% {
+        transform-origin: 50% 0%; /* Starts growing from the top */
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    30% {
+        transform-origin: 50% 0%;
+        transform: scaleY(1); /* Full height */
+        opacity: 0.6;
+    }
+    70% {
+        transform-origin: 50% 100%; /* Switches origin to bottom */
+        transform: scaleY(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform-origin: 50% 100%; /* Shrinks into the bottom */
+        transform: scaleY(0);
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+@media (max-width: 768px) {
+    .hero-content h1.hero-title {
+        letter-spacing: 0 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .hero-content h2.hero-subtitle {
+        letter-spacing: 2px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .hero-cta .wp-block-button__link {
+        padding: 14px 30px !important;
+        font-size: 0.75rem !important;
+    }
+
+    .explore-line {
+        height: 40px; /* Slightly shorter line on mobile */
+    }
+}
+
+/* ─── EXPERIENCE SECTION ───────────────────────────── */
+.experience {
+    position: relative;
+    background-color: var(--wp--preset--color--white);
+    padding: 100px 40px;
+    overflow: hidden;
+}
+
+.experience__bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/abstract-curves.jpg');
+    background-size: cover;
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+/* Intro centrado */
+.experience__intro {
+    text-align: center;
+    margin: 0 auto 80px;
+    max-width: 700px;
+}
+
+.experience__title {
+    font-family: var(--wp--preset--font-family--heading);
+    font-size: clamp(48px, 6vw, 96px);
+    font-weight: 500;
+    line-height: 1.125;
+    color: var(--wp--preset--color--aqua);
+    margin-bottom: 32px;
+    text-transform: none;
+}
+
+.experience__text {
+    font-family: var(--wp--preset--font-family--body);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--wp--preset--color--dark);
+    text-align: center;
+}
+
+/* Tailored — imagen + texto */
+.experience__tailored {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.experience__image {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.experience__image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.experience__tailored-content {
+    width: 100%;
+}
+
+.experience__tailored-title {
+    font-family: var(--wp--preset--font-family--heading);
+    font-size: clamp(36px, 4vw, 68px);
+    font-weight: 400;
+    line-height: 1.09;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--aqua);
+    margin-bottom: 24px;
+}
+
+.experience__tailored-text {
+    font-family: var(--wp--preset--font-family--body);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 2;
+    color: var(--wp--preset--color--dark);
+    margin-bottom: 16px;
+}
+
+.btn-learn-more .wp-block-button__link {
+    background: transparent;
+    color: var(--wp--preset--color--aqua);
+    font-family: var(--wp--preset--font-family--body);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 2px solid var(--wp--preset--color--aqua);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-learn-more .wp-block-button__link:hover {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .experience__tailored {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .experience__pattern__image {
+        visibility: hidden;
+    }
+}
+
+/* =========================================
+   DECORATIVE SVG ELEMENTS
+   ========================================= */
+
+/* Top Pattern Frame */
+.experience__frame-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background-repeat: repeat-x;
+    background-position: top center;
+    background-size: contain;
+    z-index: 5; /* Keeps it above the background but below text if needed */
+    pointer-events: none; /* Prevents it from blocking clicks */
+}
+
+/* Ghosted Flower Logo */
+.experience__ghosted-flower {
+    position: absolute;
+    top: 10; 
+    right: 10%; 
+    width: 500px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 0; /* Keeps it strictly in the background */
+    pointer-events: none;
+}
+
+.experience__pattern__image {
+    position: absolute;
+    top: 0;
+    left: -50;
+    width: 495px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- Variables de Color --- */
+:root {
+    --dark-green: #00202c;
+    --accent-aqua: #7fbac8;
+}
+
+.discover-section {
+    background-color: var(--dark-green);
+    padding: 140px 20px; /* Padding lateral añadido para móviles */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Patrones Geométricos */
+.pattern-bg {
+    position: absolute;
+    width: clamp(250px, 40vw, 495px); /* Se escala en pantallas más chicas */
+    height: clamp(250px, 40vw, 495px);
+    background-image: url('../images/frame.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.15; /* Bajé la opacidad un poco para que no compita con el texto */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.pattern-top-right {
+    top: -50px;
+    right: -50px;
+}
+
+.pattern-bottom-center {
+    bottom: -100px;
+    left: 10%;
+}
+
+.discover-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 700px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Imagen con efectos */
+.discover-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 65%; /* Usar % en lugar de px fijos */
+    max-width: 890px;
+    height: 550px;
+    z-index: 2;
+}
+
+.img-mirror-bw {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.8); /* Brillo ligeramente subido */
+    transform: scaleX(-1);
+    border-radius: 4px;
+}
+
+/* Título */
+.discover-main-title {
+    position: absolute;
+    top: 250px; 
+    left: 0;
+    z-index: 4;
+    color: var(--accent-aqua);
+    font-size: clamp(3rem, 6vw, 5.5rem); 
+    line-height: 1;
+    text-transform: uppercase;
+    font-family: var(--wp--preset--font-family--heading, serif);
+    width: min-content;
+}
+
+/* LA TARJETA */
+.discover-card {
+    position: absolute;
+    bottom: 20px; 
+    right: 0; 
+    width: 90%;
+    max-width: 520px; /* Max-width en lugar de width fijo */
+    z-index: 10;
+    background: #002b3b;
+    padding: 60px 50px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5); /* Sombra más suave */
+    border-radius: 4px;
+}
+
+.card-subtitle {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: var(--wp--preset--font-family--body, sans-serif);
+}
+
+.discover-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* Progress Bar & Footer */
+.progress-bar-container {
+    width: 100%;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    margin-bottom: 25px;
+}
+
+.progress-bar-fill {
+    width: 50%;
+    height: 100%;
+    background: var(--accent-aqua);
+    transition: width 0.3s ease;
+}
+
+.slider-controls-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.arrows {
+    color: #fff;
+    font-size: 1.8rem;
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.arrows span:hover {
+    color: var(--accent-aqua);
+}
+
+.counter {
+    color: #fff;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* Botón Circular */
+.learn-more-circle {
+    position: absolute;
+    right: -40px; /* Lo asoma fuera de la caja */
+    bottom: 40px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.learn-more-circle:hover {
+    transform: scale(1.05);
+}
+
+.learn-more-circle svg {
+    width: 100%;
+    height: 100%;
+    animation: rotate 15s linear infinite;
+    fill: var(--accent-aqua);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.arrow-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #7fbac8; /* Mismo aqua del texto */
+    color: var(--dark-green);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ─── RESPONSIVE MÓVIL Y TABLET ─── */
+@media (max-width: 992px) {
+    .discover-section {
+        padding: 80px 20px;
+    }
+
+    .discover-container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Rompemos el position absolute para que se apilen */
+    .discover-image-wrapper {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        margin-bottom: 30px;
+    }
+
+    .discover-main-title {
+        position: relative;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .discover-card {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        padding: 40px 30px;
+        margin-top: -20px; 
+    }
+
+    .learn-more-circle {
+        right: 20px; /* Lo mete dentro de la caja en móviles para que no se corte la pantalla */
+        bottom: 20px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .arrow-bg {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+/* --- ANIMACIÓN DEL SLIDER --- */
+.slides-wrapper {
+    position: relative;
+    /* Dale una altura mínima para que la tarjeta no salte al cambiar de texto si uno es más largo que el otro */
+    min-height: 220px; 
+    margin-bottom: 20px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(30px); /* Empieza un poco a la derecha */
+    transition: all 0.4s ease-in-out;
+}
+
+.slide.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); /* Entra a su posición original */
+}
+
+/* Transición suave para la barra de progreso */
+.progress-bar-fill {
+    transition: width 0.4s ease-in-out;
+}
+
+/* ==========================================================================
+   SERVICES SECTION
+   ========================================================================== */
+
+.services-section {
+    background-color: #00202C; /* Dark teal fallback */
+    background-size: cover;
+    background-position: center;
+    padding: 120px 20px; /* Added horizontal padding for mobile */
+    position: relative;
+    overflow: hidden;
+    min-height: 850px;
+}
+
+.services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Space for image and list */
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Visuals (Image & Text) --- */
+.services-visuals {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centers content within the grid cell */
+}
+
+/* Container for the image and the overlapping text */
+.image-stack {
+    position: relative;
+}
+
+.main-image-wrapper {
+    position: relative;
+    width: 450px;
+    height: 600px;
+    z-index: 2;
+}
+
+.main-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px; /* Optional: adds a slight softening to the image edges */
+}
+
+/* The text that overlaps the image */
+.services-text-overlay {
+    position: absolute;
+    bottom: 50px;
+    left: -80px; /* Pulls the text out to the left of the image */
+    z-index: 5;
+    pointer-events: none; /* Allows clicking through the text to the image if needed */
+}
+
+/* "Our Services" eyebrow text */
+.services-text-overlay .eyebrow {
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px; /* Reduced margin to pull it closer to the title */
+}
+
+/* Main Title */
+.services-main-title {
+    color: #7FBAC8; /* Aqua Bespoke */
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    font-family: var(--wp--preset--font-family--heading, serif);
+    margin: 0; /* Remove default margins to keep it tight with the eyebrow */
+}
+
+/* Floating Action Button (Arrow) */
+.floating-action-button {
+    position: absolute;
+    bottom: 20px;
+    right: -30px; /* Moved to the right side of the image */
+    background: #7FBAC8;
+    color: #00202C;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.floating-action-button:hover {
+    transform: scale(1.1);
+}
+
+/* --- Navigation List --- */
+.services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-item .radio-dot {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin-right: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Active State for the List Items */
+.service-item.active .radio-dot {
+    border-color: #7FBAC8;
+    background-color: #7FBAC8;
+    /* Create the dot-inside-a-ring effect */
+    box-shadow: inset 0 0 0 3px #00202C; 
+}
+
+.service-item .label {
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.service-item.active .label {
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.inline-learn {
+    margin-left: auto; /* Pushes the link to the far right */
+    color: #7FBAC8;
+    font-size: 0.75rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.service-item.active .inline-learn {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Background Pattern positioning */
+.services-pattern-bottom {
+    bottom: -250px;
+    left: 25%;
+    opacity: 0.2;
+}
+
+/* --- RESPONSIVE STYLES --- */
+@media (max-width: 992px) {
+    .services-section {
+        padding: 80px 20px;
+    }
+
+    /* Stack the layout vertically */
+    .services-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    /* Adjust image size for mobile */
+    .main-image-wrapper {
+        width: 100%;
+        max-width: 500px; /* Prevents it from getting too large on tablets */
+        height: 500px;
+    }
+
+    /* Reset text positioning to keep it readable on smaller screens */
+    .services-text-overlay {
+        position: relative;
+        bottom: 0;
+        left: 20px;
+        margin-top: -60px; /* Pulls text up over the bottom edge of the image */
+        padding: 0 20px;
+        text-align: center;
+        background: linear-gradient(to top, rgba(0,32,44,1) 40%, rgba(0,32,44,0) 100%);
+    }
+
+    .services-main-title {
+        font-size: 3rem; /* Ensure it fits on mobile */
+    }
+
+    .floating-action-button {
+        bottom: 80px; /* Adjusted so it doesn't clash with the new text position */
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-image-wrapper {
+        height: 400px;
+    }
+    
+    .services-main-title {
+        font-size: 2.5rem;
+    }
+    
+    .service-item .label {
+        font-size: 0.9rem;
+    }
+    
+    .service-item.active .label {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================================================
+   GALLERY SECTION
+   ========================================================================== */
+
+.gallery-section {
+    background-color: #fff; /* Fondo blanco según la imagen */
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    padding: 0 40px; /* NUEVO: Espacio a cada lado de la imagen */
+}
+
+.gallery-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: visible; 
+}
+
+.gallery-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px; /* Opcional: suaviza las esquinas de la imagen */
+    filter: brightness(0.7); /* Oscurece un poco más para asegurar que el texto blanco resalte */
+}
+
+/* --- Contenido de Texto --- */
+.gallery-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color: #fff;
+    z-index: 5;
+    /* NUEVO: Flexbox asegura que todo el contenido interior esté perfectamente centrado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.gallery-eyebrow {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.gallery-title {
+    font-family: var(--wp--preset--font-family--heading, serif);
+    /* Usando clamp para que el texto sea gigante en desktop y razonable en móvil */
+    font-size: clamp(4rem, 10vw, 120px); 
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin: 0;
+    color: rgba(127, 186, 200, 0.9); /* Azul aqua con ligera transparencia */
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Ayuda a separar el texto de la foto */
+}
+
+.gallery-subtext {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.95rem;
+    margin-top: 15px;
+    font-weight: 700;
+}
+
+/* --- Botón Circular Inferior --- */
+.enter-gallery-button {
+    position: absolute;
+    bottom: -60px; /* Sobresale de la imagen hacia el fondo blanco */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    z-index: 15;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.enter-gallery-button:hover {
+    transform: translateX(-50%) scale(1.05); /* Efecto hover */
+}
+
+.circle-text svg {
+    width: 100%;
+    height: 100%;
+    animation: rotateText 20s linear infinite;
+}
+
+.circle-text text {
+    fill: #7fbac8; /* Color aqua para el texto circular */
+    font-size: 9.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Círculo central con la flecha */
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #7fbac8; /* Color aqua sólido */
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* --- Patrones --- */
+.gallery-pattern-top {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+}
+
+.gallery-pattern-bottom {
+    bottom: -100px;
+    right: -100px;
+    opacity: 0.2;
+}
+
+@keyframes rotateText {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+@media (max-width: 768px) {
+    .gallery-section {
+        padding: 60px 0;
+    }
+
+    .gallery-container {
+        padding: 0 20px; /* Reduce el margen lateral en móviles */
+    }
+
+    .gallery-image-wrapper {
+        height: 450px; /* Reduce la altura de la imagen en móviles */
+    }
+
+    .gallery-eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    .gallery-subtext {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    .enter-gallery-button {
+        width: 100px;
+        height: 100px;
+        bottom: -50px;
+    }
+
+    .gallery-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+/* ==========================================================================
+   REVIEWS SECTION
+   ========================================================================== */
+
+.reviews-section {
+    background-color: #00202C; /* Dark Teal Base */
+    padding: 120px 20px 0px 20px; /* Added horizontal padding for mobile safety */
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns on desktop */
+    align-items: center; /* Vertically centers the two blocks */
+    gap: 80px;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Left Side: White Card --- */
+.testimonial-card {
+    background: #ffffff;
+    padding: 80px 60px 60px 60px; /* Extra padding top to make room for quotes */
+    position: relative;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Overlapping Quote Icons */
+.quote-icon {
+    position: absolute;
+    top: -80px; /* Pulls it up over the top edge */
+    left: 50%;
+    transform: translateX(-50%); /* Perfectly centers it horizontally */
+    display: flex; 
+    gap: 15px; 
+    z-index: 20;
+}
+
+/* Ensure SVG quotes scale properly if needed */
+.quote-icon img {
+    width: 87px;
+    height: auto; /* Adjust this based on actual SVG size */
+}
+
+/* Text Content */
+.testimonial-text {
+    color: #333333;
+    font-family: var(--wp--preset--font-family--body, sans-serif);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0 0 30px 0;
+}
+
+.testimonial-author {
+    color: #00202C;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin: 0 0 40px 0;
+}
+
+/* Button */
+.btn-all-testimonials {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background-color: #84B9C7; /* Solid Aqua fill */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-all-testimonials:hover {
+    background-color: #00202C; /* Turns dark on hover */
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Right Side: Display Panel --- */
+.reviews-display {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Big Ghosted Logo behind text */
+.ghosted-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%; /* Massive scale */
+    max-width: 800px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Rating Info (Stars & Text) */
+.rating-info {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between text and stars */
+    margin-bottom: 20px;
+}
+
+.rating-label {
+    color: #ffffff;
+    letter-spacing: 3px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.stars {
+    color: #84B9C7; /* Aqua stars */
+    font-size: 1.2rem;
+    display: flex;
+    gap: 5px;
+}
+
+/* Big "REVIEWS" Text */
+.reviews-big-title {
+    position: relative;
+    z-index: 5;
+    font-family: var(--wp--preset--font-family--heading, serif);
+    font-size: clamp(4rem, 8vw, 8rem); /* Massive responsive scaling */
+    color: #84B9C7;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin: 0;
+}
+
+/* --- Background Pattern --- */
+.reviews-pattern-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px; /* Adjust based on pattern size */
+    height: 100px;
+    background-image: url('../images/frame.svg'); /* Update path if needed */
+    background-repeat: repeat-x;
+    background-size: contain;
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+@media (max-width: 992px) {
+    /* Stack elements vertically on tablets and mobile */
+    .reviews-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    /* Reverse order: Title on top, card on bottom for mobile flow */
+    .reviews-display {
+        order: -1; 
+        align-items: center; /* Center everything textually */
+        text-align: center;
+    }
+
+    .rating-info {
+        flex-direction: column; /* Stack text and stars */
+        gap: 10px;
+    }
+
+    .testimonial-card {
+        padding: 60px 30px 40px 30px; /* Reduce padding to save screen space */
+        text-align: center;
+    }
+    .quote-icon {
+        position: absolute;
+        top: 10px; 
+        left: 50%;
+        transform: translateX(-50%); 
+        display: flex; 
+        gap: 5px; 
+        z-index: 20;
+    }
+
+    .quote-icon img {
+        height: 100px; /* Smaller quotes */
+    }
+
+    .testimonial-text {
+        font-size: 0.95rem; /* Slightly smaller text */
+        margin-top: 5rem;
+    }
+
+    .btn-all-testimonials {
+        justify-content: center; /* Center button text */
+    }
+}
+
+/* ==========================================================================
+   REVIEWS 2 & INSTAGRAM SECTION
+   ========================================================================== */
+
+.reviews-social-section {
+    position: relative;
+    background-color: #ffffff;
+    padding: 80px 0 0 0; /* Top padding, bottom is handled by the pattern */
+    overflow: hidden;
+}
+
+/* --- Main Content Wrapper --- */
+.rss-content-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    background-color: #ffffff;
+    padding-bottom: 40px; /* Space between images and bottom white edge */
+}
+
+/* =========================================
+   REVIEWS CAROUSEL AREA
+   ========================================= */
+.rss-reviews-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    padding: 0 40px;
+}
+
+.rss-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    flex-grow: 1;
+    margin: 0 40px;
+}
+
+.rss-review-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.rss-review-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555555;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Aligns author names if text lengths vary */
+}
+
+.rss-review-author {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #1A2E35; /* Dark navy brand color */
+    margin-bottom: 10px;
+}
+
+.rss-review-stars {
+    color: #1A2E35; /* Dark navy stars */
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+/* Navigation Arrows */
+.rss-arrow {
+    background: transparent;
+    border: none;
+    font-size: 3rem;
+    color: #84B9C7; /* Aqua color */
+    cursor: pointer;
+    font-weight: 300;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.rss-arrow:hover {
+    color: #1A2E35;
+}
+
+/* =========================================
+   INSTAGRAM FEED AREA
+   ========================================= */
+.rss-instagram-container {
+    padding: 0 40px;
+}
+
+.rss-ig-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.rss-ig-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    opacity: 0.2; /* Matches the greyed-out look */
+}
+
+.rss-ig-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: var(--wp--preset--font-family--body);
+}
+
+.rss-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #D3E5E9; /* Very light aqua line */
+    max-width: 300px;
+}
+
+.rss-ig-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #1A2E35;
+    margin: 0;
+}
+
+.rss-ig-handle {
+    color: #84B9C7; /* Aqua color */
+    font-weight: 800;
+}
+
+/* Instagram Image Grid */
+.rss-ig-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.rss-ig-item {
+    aspect-ratio: 1 / 1; /* Keeps images perfectly square */
+    background-color: #f4f4f4; /* Placeholder background */
+    overflow: hidden;
+    position: relative;
+}
+
+.rss-ig-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================
+   BOTTOM PATTERN BACKGROUND
+   ========================================= */
+.rss-pattern-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px; /* Height of the visible pattern block */
+    background-color: #00202C; /* Dark base color */
+    background-repeat: repeat;
+    background-size: auto;
+    z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .rss-reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .rss-review-card:last-child {
+        display: none; /* Hide 3rd on tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .rss-reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    .rss-ig-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .rss-line {
+        display: none; /* Hide lines on mobile for cleaner look */
+    }
+}
