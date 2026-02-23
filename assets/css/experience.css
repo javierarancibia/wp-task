@@ -117,6 +117,9 @@
         grid-template-columns: 1fr;
         gap: 40px;
     }
+    .experience__pattern__image {
+        visibility: hidden;
+    }
 }
 
 /* =========================================
