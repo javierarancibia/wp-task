@@ -89,7 +89,7 @@
     margin-bottom: 16px;
 }
 
-.btn-learn-more .wp-block-button__link {
+.btn-learn-more {
     background: transparent;
     color: var(--wp--preset--color--aqua);
     font-family: var(--wp--preset--font-family--body);
@@ -98,17 +98,62 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 12px 0;
-    border: none;
     border-bottom: 2px solid var(--wp--preset--color--aqua);
-    border-radius: 0;
-    display: flex;
+    text-decoration: none;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
 }
 
-.btn-learn-more .wp-block-button__link:hover {
+.btn-learn-more:hover {
     opacity: 0.7;
     transition: opacity 0.3s ease;
+}
+
+/* =========================================
+   DECORATIVE SVG ELEMENTS
+   ========================================= */
+
+.experience__frame-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background-image: url('../images/frame-2.svg');
+    background-repeat: repeat-x;
+    background-position: top center;
+    background-size: contain;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.experience__ghosted-flower {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 500px;
+    height: 100%;
+    background-image: url('../images/ghosted-logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.experience__pattern__image {
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 495px;
+    height: 100%;
+    background-image: url('../images/frame.svg');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Responsive */
@@ -117,49 +162,12 @@
         grid-template-columns: 1fr;
         gap: 40px;
     }
+
     .experience__pattern__image {
         visibility: hidden;
     }
-}
 
-/* =========================================
-   DECORATIVE SVG ELEMENTS
-   ========================================= */
-
-/* Top Pattern Frame */
-.experience__frame-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 400px;
-    background-repeat: repeat-x;
-    background-position: top center;
-    background-size: contain;
-    z-index: 5; /* Keeps it above the background but below text if needed */
-    pointer-events: none; /* Prevents it from blocking clicks */
-}
-
-/* Ghosted Flower Logo */
-.experience__ghosted-flower {
-    position: absolute;
-    top: 10; 
-    right: 10%; 
-    width: 500px;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    z-index: 0; /* Keeps it strictly in the background */
-    pointer-events: none;
-}
-
-.experience__pattern__image {
-    position: absolute;
-    top: 0;
-    left: -50;
-    width: 495px;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
+    .experience__ghosted-flower {
+        display: none;
+    }
 }
