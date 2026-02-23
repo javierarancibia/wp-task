@@ -65,7 +65,7 @@
 }
 
 .procedures__sidebar-title {
-    font-family: var(--wp--preset--font-family--heading, serif);
+    font-family: var(--wp--preset--font-family--body, serif);
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -183,7 +183,7 @@
 }
 
 .procedure-card__title {
-    font-family: var(--wp--preset--font-family--heading, serif);
+    font-family: var(--wp--preset--font-family--body, serif);
     font-size: 0.85rem;
     font-weight: 700;
     line-height: 1.4;
